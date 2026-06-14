@@ -18,6 +18,18 @@ require_once get_template_directory() . '/inc/megamenu.php';
 require_once get_template_directory() . '/inc/footer.php';
 require_once get_template_directory() . '/inc/default-pages.php';
 
+add_action( 'admin_enqueue_scripts', function ( $hook ) {
+    if ( $hook !== 'edit.php' ) return;
+    if ( get_current_screen()->post_type !== 'tramite' ) return;
+    wp_enqueue_script(
+        'intt-tramite-quick-edit',
+        get_template_directory_uri() . '/assets/js/tramite-quick-edit.js',
+        [ 'jquery', 'inline-edit-post' ],
+        filemtime( get_template_directory() . '/assets/js/tramite-quick-edit.js' ),
+        true
+    );
+} );
+
 add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/alert-bar' );
     register_block_type( get_template_directory() . '/blocks/hub-list' );
