@@ -5,6 +5,19 @@
  * Description: Sección de noticias con artículo destacado y dos secundarios.
  * Categories: intt-componentes
  * Inserter: false
+ *
+ * REGLA DE CONTENIDO — leer antes de editar:
+ *
+ * Columna izquierda (destacada): muestra ÚNICAMENTE el post marcado como sticky.
+ * Columna derecha: muestra los 2 posts más recientes que NO sean sticky.
+ *
+ * Reglas para el editor:
+ * - Siempre debe haber exactamente UN post marcado como sticky.
+ *   Si no hay ninguno, la columna izquierda muestra "No hay noticias publicadas".
+ * - Si hay dos o más stickies, solo aparece el más reciente en la columna
+ *   izquierda; los demás no aparecen en esta sección.
+ * - Para cambiar el post destacado: marcar el nuevo como sticky y
+ *   desmarcar el anterior (Entradas → Edición rápida → "Fijar en la parte superior").
  */
 ?>
 <!-- wp:group {"tagName":"section","align":"full","className":"has-global-padding intt-noticias-home","backgroundColor":"azul-electrico-50","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-64","bottom":"var:preset|spacing|sp-64"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
