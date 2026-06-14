@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/hub-sidebar",
+  "title": "Hub Sidebar",
+  "category": "theme",
+  "description": "Sidebar navigation listing all tipo_tramite terms.",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

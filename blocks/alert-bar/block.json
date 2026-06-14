@@ -1,0 +1,16 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/alert-bar",
+  "title": "Alert Bar",
+  "description": "Muestra la alerta activa del sitio.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "viewScript": "file:./alert-bar.js",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/hub-list",
+  "title": "Hub List",
+  "description": "Lista de trámites de la categoría actual, basada en el slug de la página.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "multiple": false,
+    "reusable": false
+  }
+}

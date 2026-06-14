@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Claude Code
+.claude/
+
+# Build output
+dist/
+build/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.code-workspace
+
+# Environment / secrets
+.env
+.env.*
+
+# WordPress auto-generated
+*.log
+error_log

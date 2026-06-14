@@ -58,8 +58,9 @@ C:\Users\aangulodelacruz\Local Sites\<new-site>\app\public\wp-content\themes\int
 `sp-0` `sp-8` `sp-16` `sp-24` `sp-32` `sp-40` `sp-48` `sp-64` `sp-80`
 (clamp-based fluid values — see source `theme.json` for exact sizes)
 
-**Typography:** Font family `Georama` (woff2 files in `assets/fonts/`). Font size slugs:
-`heading-1` through `heading-6`, `body1`, `body2`, `caption`, `overline`
+**Typography:** Font family `Georama` — single variable TTF: `assets/fonts/Georama-VariableFont_wdth,wght.ttf`. Declared in `theme.json` as one `fontFace` entry with `"fontWeight": "100 900"`. WP 6.0+ supports variable font weight ranges natively. Font size slugs: `heading-1` through `heading-6`, `body1`, `body2`, `caption`, `overline`
+
+**Font file note:** The original design referenced 4 static woff2 files (Regular/Medium/SemiBold/Bold). Those don't exist — switched to the variable TTF from the Google Fonts download. Impact: zero on blocks/patterns/templates (they use the CSS custom property, not the file). woff2 conversion is a deferred TODO.
 
 **Color palettes:** `azul-marino-*` (50–900), `azul-electrico-*` (50–900), `amarillo-oro-*` (50–900), `rojo-carmesi-*` (50–900), `gris-*` (50–900), `white`
 

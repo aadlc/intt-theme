@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/tramite-descripcion",
+  "title": "Descripción del trámite",
+  "description": "Muestra la descripción corta del trámite (campo descripcion_corta).",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "usesContext": [ "postId", "postType" ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}
