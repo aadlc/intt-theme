@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Hero — Inicio
- * Slug: intt-theme/hero-home
+ * Title: Inicio — Hero
+ * Slug: intt-theme/inicio-hero
  * Description: Sección hero de la página de inicio con titular, descripción y CTA.
  * Categories: intt-componentes
  * Inserter: false

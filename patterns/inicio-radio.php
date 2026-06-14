@@ -1,7 +1,7 @@
 <?php
 /**
- * Title: Banner INTT Radio
- * Slug: intt-theme/radio-banner
+ * Title: Inicio — Radio INTT
+ * Slug: intt-theme/inicio-radio
  * Description: Banner promocional de INTT Radio.
  * Categories: intt-componentes
  * Inserter: false
