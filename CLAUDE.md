@@ -128,7 +128,7 @@ intt-theme/
     footer.php      ← stub
     megamenu.php    ← stub
   parts/
-    banner.html     ← stub
+    banner-ministerio.html ← stub
     footer.html     ← stub
     header.html     ← stub
     megamenu-panel.html ← stub
@@ -266,7 +266,7 @@ Fill in order — each one builds on the previous:
 1. `parts/site-header.html` — logo, nav, megamenu toggle, alert-bar block
 2. `parts/footer.html` — footer links + dynamic year
 3. `parts/megamenu-panel.html` — 3-column panel
-4. `parts/banner.html` — alert/radio banner area
+4. `parts/banner-ministerio.html` — ministry logos bar (top of header area)
 5. `parts/header.html` — inner header block
 
 **Verify:** Site header and footer render on front page.
@@ -326,6 +326,34 @@ Then fill `templates/front-page.html` with pattern references.
 **Known issue from old theme:** `hub-list`, `hub-sidebar`, and `alert-bar` blocks show an "unsupported" message in the block editor (no editor script). This is a cosmetic issue — they render correctly on the front end. Fix is deferred.
 
 **Critical note:** `tramite-descripcion` render.php uses `$block->context['postId']` not `$context['postId']`.
+
+---
+
+## Convención: marcadores de posición en partes de plantilla
+
+Los archivos `.html` de partes de plantilla son estáticos — no pueden ejecutar PHP directamente. Para valores dinámicos se usa un sistema de marcadores de posición reemplazados por filtros PHP en `render_block_core/template-part`.
+
+| Marcador | Reemplazado por | Dónde se aplica |
+|----------|----------------|-----------------|
+| `{year}` | Año actual (`date('Y')`) | `parts/footer.html` — filtro en `inc/footer.php` |
+
+**Patrón disponible para uso futuro:** Si una parte de plantilla necesita la URL del tema, agregar un filtro `render_block_core/template-part` en `functions.php` que reemplace un marcador como `{theme_uri}` con `get_template_directory_uri()`. No está implementado actualmente (el caso de uso —logo móvil— se delegó al bloque `intt/logo` pendiente).
+
+---
+
+## Decisiones de diseño registradas
+
+### Logo en la cabecera (`parts/site-header.html`)
+Actualmente usa `wp:site-logo` estándar de WordPress (un solo logo, asignable desde el Editor de Sitio). El redimensionamiento en móvil lo maneja el navegador.
+
+**TODO pendiente — bloque `intt/logo` personalizado:**
+Crear un bloque dedicado que soporte logo escritorio + logo móvil y renderice un elemento `<picture>` (el navegador descarga solo la versión necesaria). El editor sube ambos logos desde el inspector del bloque. Esto también habilita variantes para cabecera transparente, sticky y modo oscuro. Ver `blocks/` para el patrón de bloques existentes.
+
+---
+
+## Language
+
+All documentation, comments, inline PHP docblocks, and any user-facing strings in the theme must be written in **Spanish**. This applies to README files, code comments, pattern titles, block descriptions, and admin labels. Exception: block JSON `$schema` and WordPress API keys are always in English.
 
 ---
 

@@ -134,8 +134,8 @@
       "padding": {
         "top":    "0px",
         "bottom": "0px",
-        "left":   "var:preset|spacing|sp-16",
-        "right":  "var:preset|spacing|sp-16"
+        "left":   "var:preset|spacing|sp-24",
+        "right":  "var:preset|spacing|sp-24"
       }
     },
     "color": {
