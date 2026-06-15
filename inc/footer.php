@@ -1,6 +1,6 @@
 <?php
 /**
- * Replaces {year} placeholder in the footer template part with the current year.
+ * Reemplaza {year} con el año actual en el pie de página.
  */
 add_filter( 'render_block_core/template-part', function ( $content, $block ) {
 
