@@ -68,6 +68,38 @@ C:\Users\aangulodelacruz\Local Sites\<new-site>\app\public\wp-content\themes\int
 
 ---
 
+## Spacing conventions
+
+These values must be used consistently. Do not invent spacing values — always pick from the token list.
+
+### Section wrappers (every full-width section)
+- Padding top/bottom: `sp-64`
+- No gap between sections — `front-page.html` uses `blockGap: 0` on the main group
+
+### Within each section
+| Context | Token |
+|---|---|
+| Overline label → heading | `sp-8` |
+| Heading → content | `sp-32` |
+| Between sub-groups (e.g. Ciudadanos → Empresas) | `sp-32` margin-top |
+
+### Grids and columns
+| Context | Token |
+|---|---|
+| Gap between cards | `sp-24` |
+| Column gap (e.g. 60/40 split) | `sp-24` |
+| Row gap (e.g. noticias grid) | `sp-32` |
+
+### Card internals
+| Context | Token |
+|---|---|
+| Card body padding (all sides) | `sp-24` |
+| Gap between image and card body | `sp-0` |
+| Internal content gap within card body | `sp-8` |
+| Post title / excerpt bottom spacing | `sp-16` |
+
+---
+
 ## Build approach — Stub first, then fill
 
 **Do not copy files directly from the old theme.** Build stubs for every file first so the theme activates with zero errors, then fill each file with real content one at a time.

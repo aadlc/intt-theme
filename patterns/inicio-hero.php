@@ -7,8 +7,8 @@
  * Inserter: false
  */
 ?>
-<!-- wp:group {"tagName":"section","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-24","bottom":"var:preset|spacing|sp-24","left":"var:preset|spacing|sp-24","right":"var:preset|spacing|sp-24"}}},"backgroundColor":"azul-electrico-100","layout":{"type":"default"}} -->
-<section class="wp-block-group has-azul-electrico-100-background-color has-background is-layout-flow wp-block-group-is-layout-flow" style="padding-top:var(--wp--preset--spacing--sp-24);padding-right:var(--wp--preset--spacing--sp-24);padding-bottom:var(--wp--preset--spacing--sp-24);padding-left:var(--wp--preset--spacing--sp-24)"><!-- wp:heading {"level":1} -->
+<!-- wp:group {"tagName":"section","className":"is-layout-flow wp-block-group-is-layout-flow","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-24","bottom":"var:preset|spacing|sp-24","left":"var:preset|spacing|sp-24","right":"var:preset|spacing|sp-24"}}},"backgroundColor":"azul-electrico-100","layout":{"type":"default"}} -->
+<section class="wp-block-group is-layout-flow wp-block-group-is-layout-flow has-azul-electrico-100-background-color has-background" style="padding-top:var(--wp--preset--spacing--sp-24);padding-right:var(--wp--preset--spacing--sp-24);padding-bottom:var(--wp--preset--spacing--sp-24);padding-left:var(--wp--preset--spacing--sp-24)"><!-- wp:heading {"level":1} -->
 <h1 class="wp-block-heading">Gestiona y paga tu trámite en línea</h1>
 <!-- /wp:heading -->
 

@@ -43,10 +43,10 @@
         { "name": "H2", "slug": "heading-2", "size": "2.25rem" },
         { "name": "H3", "slug": "heading-3", "size": "1.75rem" },
         { "name": "H4", "slug": "heading-4", "size": "1.375rem" },
-        { "slug": "heading-5", "size": "1.125rem" },
+        { "name": "H5", "slug": "heading-5", "size": "1.125rem" },
         { "name": "H6", "slug": "heading-6", "size": "1rem" },
-        { "name": "Body 1", "slug": "body1", "size": "1rem" },
-        { "name": "Body 2", "slug": "body2", "size": "0.875rem" },
+        { "name": "Body 1", "slug": "body-1", "size": "1rem" },
+        { "name": "Body 2", "slug": "body-2", "size": "0.875rem" },
         { "name": "Caption", "slug": "caption", "size": "0.75rem" },
         { "name": "Overline", "slug": "overline", "size": "0.75rem" }
       ],

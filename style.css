@@ -7,3 +7,28 @@ Tested up to: 6.7
 Requires PHP: 8.0
 Text Domain: intt-theme
 */
+
+/* ── Tarjetas de trámite ──────────────────────────────────────────────────── */
+
+.intt-tarjeta-tramite {
+    overflow: hidden;
+    border-radius: var(--wp--custom--radius--lg);
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.intt-tarjeta-tramite__imagen img {
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+.intt-tarjeta-tramite__contenido {
+    flex: 1;
+}
+
+.intt-tarjeta-tramite__contenido h3 {
+    font-weight: 700;
+}
