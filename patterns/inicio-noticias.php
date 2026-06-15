@@ -20,7 +20,7 @@
  *   desmarcar el anterior (Entradas → Edición rápida → "Fijar en la parte superior").
  */
 ?>
-<!-- wp:group {"tagName":"section","align":"full","className":"has-global-padding intt-noticias-home","backgroundColor":"azul-electrico-50","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-64","bottom":"var:preset|spacing|sp-64"}}},"layout":{"type":"constrained","contentSize":"1200px"}} -->
+<!-- wp:group {"tagName":"section","align":"full","className":"has-global-padding intt-noticias-home","backgroundColor":"azul-electrico-50","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-64","bottom":"var:preset|spacing|sp-64"}}},"layout":{"type":"constrained","contentSize":"var(--wp--style--global--wide-size)"}} -->
 <section class="wp-block-group alignfull has-global-padding has-azul-electrico-50-background-color has-background intt-noticias-home" style="padding-top:var(--wp--preset--spacing--sp-64);padding-bottom:var(--wp--preset--spacing--sp-64)">
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|sp-8"}},"typography":{"textTransform":"uppercase"}}} -->

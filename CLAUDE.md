@@ -389,6 +389,7 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 - [ ] `<main>` landmark on `front-page.html`
 - [ ] Review `single-tramite.html` inline styles
 - [ ] Database cleanup: confirm no leftover `visibilidad-tramite` terms in imported content
+- [ ] Breadcrumbs en archivo y taxonomía: WordPress no incluye el archivo del CPT en la ruta de taxonomía (`Inicio / Trámites / Vehículos` no es posible con el bloque nativo). Crear breadcrumb personalizado con `wp:navigation-link` estáticos o un bloque propio que resuelva la jerarquía CPT → taxonomía → término.
 
 ### Post-import cleanup on new instance
 - [ ] Delete `wp-content/mu-plugins/allow-svg.php` (was added temporarily to allow SVG media upload)

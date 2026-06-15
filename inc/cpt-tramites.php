@@ -19,6 +19,7 @@ function intt_registrar_cpt_tramites() {
             'edit_item'          => 'Editar trámite',
             'view_item'          => 'Ver trámite',
             'all_items'          => 'Todos los trámites',
+            'archives'           => 'Trámites',
             'search_items'       => 'Buscar trámites',
             'not_found'          => 'No se encontraron trámites.',
             'not_found_in_trash' => 'No hay trámites en la papelera.',
@@ -154,6 +155,19 @@ function intt_quick_edit_descripcion_corta( $column, $post_type ) {
         </div>
     </fieldset>
     <?php
+}
+
+// ── Orden A-Z en el archivo del CPT y en páginas de taxonomía ────────────────
+
+add_action( 'pre_get_posts', 'intt_ordenar_tramites_az' );
+
+function intt_ordenar_tramites_az( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) return;
+    if ( ! $query->is_post_type_archive( 'tramite' ) && ! $query->is_tax( 'tipo_tramite' ) ) return;
+
+    $query->set( 'orderby', 'title' );
+    $query->set( 'order', 'ASC' );
+    $query->set( 'posts_per_page', 100 );
 }
 
 // ── Permalink: resolver el marcador %tipo_tramite% ────────────────────────────
