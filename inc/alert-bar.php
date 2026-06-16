@@ -1,6 +1,7 @@
 <?php
 /**
  * CPT alerta_intt: registro, meta box y columnas de administración.
+ * Las fechas se almacenan en UTC y se muestran en la zona horaria de WordPress.
  */
 
 add_action( 'init', function () {
@@ -24,6 +25,30 @@ add_action( 'init', function () {
 	] );
 } );
 
+// ---------- Helpers de conversión de zona horaria ----------
+
+function intt_alerta_utc_a_local( string $utc ): string {
+	if ( ! $utc ) return '';
+	try {
+		$dt = new DateTime( $utc, new DateTimeZone( 'UTC' ) );
+		$dt->setTimezone( new DateTimeZone( wp_timezone_string() ) );
+		return $dt->format( 'Y-m-d\TH:i' );
+	} catch ( Exception $e ) {
+		return '';
+	}
+}
+
+function intt_alerta_local_a_utc( string $local ): string {
+	if ( ! $local ) return '';
+	try {
+		$dt = new DateTime( str_replace( 'T', ' ', $local ), new DateTimeZone( wp_timezone_string() ) );
+		$dt->setTimezone( new DateTimeZone( 'UTC' ) );
+		return $dt->format( 'Y-m-d H:i:s' );
+	} catch ( Exception $e ) {
+		return '';
+	}
+}
+
 // ---------- Meta box ----------
 
 add_action( 'add_meta_boxes', function () {
@@ -41,12 +66,12 @@ function intt_alerta_meta_box_html( $post ) {
 	wp_nonce_field( 'alerta_intt_meta_save', 'alerta_intt_nonce' );
 
 	$tipo       = get_post_meta( $post->ID, 'tipo_alerta',      true ) ?: 'info';
-	$inicio     = get_post_meta( $post->ID, 'fecha_inicio',     true );
-	$expiracion = get_post_meta( $post->ID, 'fecha_expiracion', true );
+	$inicio_utc = get_post_meta( $post->ID, 'fecha_inicio',     true );
+	$expira_utc = get_post_meta( $post->ID, 'fecha_expiracion', true );
 
-	// Convertir de 'YYYY-MM-DD HH:MM:SS' a 'YYYY-MM-DDTHH:MM' para datetime-local
-	$inicio_input     = $inicio     ? str_replace( ' ', 'T', substr( $inicio,     0, 16 ) ) : '';
-	$expiracion_input = $expiracion ? str_replace( ' ', 'T', substr( $expiracion, 0, 16 ) ) : '';
+	// Convertir UTC almacenado a hora local para el input
+	$inicio_input = intt_alerta_utc_a_local( $inicio_utc );
+	$expira_input = intt_alerta_utc_a_local( $expira_utc );
 
 	$tipos = [
 		'info'      => 'Información',
@@ -69,14 +94,20 @@ function intt_alerta_meta_box_html( $post ) {
 		</tr>
 		<tr>
 			<th><label for="fecha_inicio">Fecha de inicio</label></th>
-			<td><input type="datetime-local" name="fecha_inicio" id="fecha_inicio" value="<?php echo esc_attr( $inicio_input ); ?>" /></td>
+			<td>
+				<input type="datetime-local" name="fecha_inicio" id="fecha_inicio" value="<?php echo esc_attr( $inicio_input ); ?>" />
+				<p class="description">Dejar vacío para que sea activa inmediatamente al publicar.</p>
+			</td>
 		</tr>
 		<tr>
 			<th><label for="fecha_expiracion">Fecha de expiración</label></th>
-			<td><input type="datetime-local" name="fecha_expiracion" id="fecha_expiracion" value="<?php echo esc_attr( $expiracion_input ); ?>" /></td>
+			<td>
+				<input type="datetime-local" name="fecha_expiracion" id="fecha_expiracion" value="<?php echo esc_attr( $expira_input ); ?>" />
+				<p class="description">Dejar vacío para que nunca expire (se controla despublicando el post).</p>
+			</td>
 		</tr>
 	</table>
-	<p class="description">El <strong>Título</strong> del post es el encabezado de la alerta. El <strong>Extracto</strong> es el cuerpo del mensaje.</p>
+	<p class="description">El <strong>Título</strong> es el encabezado de la alerta. El <strong>Extracto</strong> es el cuerpo del mensaje.</p>
 	<?php
 }
 
@@ -97,22 +128,28 @@ add_action( 'save_post_alerta_intt', function ( $post_id ) {
 	}
 	update_post_meta( $post_id, 'tipo_alerta', $tipo );
 
-	// Convertir 'YYYY-MM-DDTHH:MM' a 'YYYY-MM-DD HH:MM:SS' para comparación DATETIME
+	// Convertir hora local ingresada a UTC antes de guardar
 	foreach ( [ 'fecha_inicio', 'fecha_expiracion' ] as $campo ) {
-		$valor = sanitize_text_field( $_POST[ $campo ] ?? '' );
-		if ( $valor ) {
-			$valor = str_replace( 'T', ' ', $valor ) . ':00';
-		}
-		update_post_meta( $post_id, $campo, $valor );
+		$local = sanitize_text_field( $_POST[ $campo ] ?? '' );
+		update_post_meta( $post_id, $campo, intt_alerta_local_a_utc( $local ) );
 	}
+
+	delete_transient( 'intt_alerta_activa' );
 } );
 
-// ---------- Columna de estado en la lista de posts ----------
+// Invalidar caché cuando el estado del post cambia (publicar, despublicar, eliminar)
+add_action( 'transition_post_status', function ( $new, $old, $post ) {
+	if ( 'alerta_intt' === $post->post_type ) {
+		delete_transient( 'intt_alerta_activa' );
+	}
+}, 10, 3 );
+
+// ---------- Columnas de administración ----------
 
 add_filter( 'manage_alerta_intt_posts_columns', function ( $cols ) {
 	$cols['tipo_alerta']      = 'Tipo';
-	$cols['fecha_inicio']     = 'Inicio';
-	$cols['fecha_expiracion'] = 'Expira';
+	$cols['fecha_inicio']     = 'Inicio (hora local)';
+	$cols['fecha_expiracion'] = 'Expira (hora local)';
 	return $cols;
 } );
 
@@ -124,10 +161,12 @@ add_action( 'manage_alerta_intt_posts_custom_column', function ( $col, $post_id 
 			echo esc_html( $etiquetas[ $tipo ] ?? $tipo );
 			break;
 		case 'fecha_inicio':
-			echo esc_html( get_post_meta( $post_id, 'fecha_inicio', true ) ?: '—' );
+			$utc = get_post_meta( $post_id, 'fecha_inicio', true );
+			echo esc_html( $utc ? str_replace( 'T', ' ', intt_alerta_utc_a_local( $utc ) ) : '—' );
 			break;
 		case 'fecha_expiracion':
-			echo esc_html( get_post_meta( $post_id, 'fecha_expiracion', true ) ?: '—' );
+			$utc = get_post_meta( $post_id, 'fecha_expiracion', true );
+			echo esc_html( $utc ? str_replace( 'T', ' ', intt_alerta_utc_a_local( $utc ) ) : 'Sin vencimiento' );
 			break;
 	}
 }, 10, 2 );

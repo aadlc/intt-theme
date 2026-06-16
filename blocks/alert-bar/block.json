@@ -7,6 +7,7 @@
   "category": "text",
   "textdomain": "intt-theme",
   "render": "file:./render.php",
+  "editorScript": "file:./editor.js",
   "viewScript": "file:./alert-bar.js",
   "supports": {
     "html": false,
