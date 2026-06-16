@@ -81,6 +81,10 @@ Text Domain: intt-theme
 	color: var(--wp--preset--color--rojo-carmesi-700);
 }
 
+.intt-alert-dismissed .intt-alert {
+	display: none;
+}
+
 /* ── Tarjetas de trámite ──────────────────────────────────────────────────── */
 
 .intt-tarjeta-tramite {

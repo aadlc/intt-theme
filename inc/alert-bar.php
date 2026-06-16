@@ -267,6 +267,14 @@ add_action( 'deleted_post', function ( $post_id ) {
 	}
 } );
 
+// Script en <head> para ocultar la alerta antes de que el cuerpo se pinte (evita flash al navegar)
+add_action( 'wp_head', function () {
+	$alerta = intt_get_active_alert();
+	if ( ! $alerta ) return;
+	$key = 'intt-alert-dismissed-' . $alerta['alert_key'];
+	echo '<script>try{if(localStorage.getItem(' . wp_json_encode( $key ) . ')){document.documentElement.classList.add("intt-alert-dismissed");}}catch(e){}</script>' . "\n";
+}, 1 );
+
 // ---------- Consulta de alerta activa ----------
 
 function intt_get_active_alert(): ?array {
@@ -294,13 +302,11 @@ function intt_get_active_alert(): ?array {
 				'relation' => 'AND',
 				[
 					'relation' => 'OR',
-					[ 'key' => 'fecha_inicio', 'compare' => 'NOT EXISTS' ],
 					[ 'key' => 'fecha_inicio', 'value' => '', 'compare' => '=' ],
 					[ 'key' => 'fecha_inicio', 'value' => $ahora, 'compare' => '<=', 'type' => 'DATETIME' ],
 				],
 				[
 					'relation' => 'OR',
-					[ 'key' => 'fecha_expiracion', 'compare' => 'NOT EXISTS' ],
 					[ 'key' => 'fecha_expiracion', 'value' => '', 'compare' => '=' ],
 					[ 'key' => 'fecha_expiracion', 'value' => $ahora, 'compare' => '>=', 'type' => 'DATETIME' ],
 				],

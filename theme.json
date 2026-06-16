@@ -174,7 +174,16 @@
     "blocks": {
       "core/site-logo": {
         "css": "& img { width: 150px !important; height: auto; max-height: 56px; object-fit: contain;}"
+      },
+      "core/template-part": {                                                                                                                                                                                              
+        "spacing": {                                                                                                                                                                                                       
+          "margin": {                                                                                                                                                                                                      
+            "top": "0",                                                                                                                                                                                                    
+            "bottom": "0"                                                                                                                                                                                                  
+          }                                                                                                                                                                                                                
+        }                                                                                                                                                                                                                  
       }
     }
+    
   }
 }
