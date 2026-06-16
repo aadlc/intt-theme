@@ -20,8 +20,19 @@ add_action( 'init', function () {
 		'show_ui'      => true,
 		'show_in_menu' => true,
 		'menu_icon'    => 'dashicons-warning',
-		'supports'     => [ 'title', 'excerpt' ],
+		'supports'     => [ 'title' ],
 		'show_in_rest' => true,
+	] );
+} );
+
+// ---------- Meta: mensaje ----------
+
+add_action( 'init', function () {
+	register_post_meta( 'alerta_intt', 'mensaje', [
+		'single'            => true,
+		'type'              => 'string',
+		'sanitize_callback' => 'wp_kses_post',
+		'show_in_rest'      => true,
 	] );
 } );
 
@@ -66,6 +77,7 @@ function intt_alerta_meta_box_html( $post ) {
 	wp_nonce_field( 'alerta_intt_meta_save', 'alerta_intt_nonce' );
 
 	$tipo       = get_post_meta( $post->ID, 'tipo_alerta',      true ) ?: 'info';
+	$mensaje    = get_post_meta( $post->ID, 'mensaje',          true );
 	$inicio_utc = get_post_meta( $post->ID, 'fecha_inicio',     true );
 	$expira_utc = get_post_meta( $post->ID, 'fecha_expiracion', true );
 
@@ -106,8 +118,11 @@ function intt_alerta_meta_box_html( $post ) {
 				<p class="description">Dejar vacío para que nunca expire (se controla despublicando el post).</p>
 			</td>
 		</tr>
+		<tr>
+			<th><label for="mensaje">Mensaje</label></th>
+			<td><textarea name="mensaje" id="mensaje" rows="3" style="width:100%;resize:vertical"><?php echo esc_textarea( $mensaje ); ?></textarea></td>
+		</tr>
 	</table>
-	<p class="description">El <strong>Título</strong> es el encabezado de la alerta. El <strong>Extracto</strong> es el cuerpo del mensaje.</p>
 	<?php
 }
 
@@ -127,6 +142,8 @@ add_action( 'save_post_alerta_intt', function ( $post_id ) {
 		$tipo = 'info';
 	}
 	update_post_meta( $post_id, 'tipo_alerta', $tipo );
+
+	update_post_meta( $post_id, 'mensaje', wp_unslash( $_POST['mensaje'] ?? '' ) );
 
 	// Convertir hora local ingresada a UTC antes de guardar
 	foreach ( [ 'fecha_inicio', 'fecha_expiracion' ] as $campo ) {

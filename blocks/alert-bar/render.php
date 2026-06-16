@@ -37,7 +37,7 @@ if ( false === $cached ) {
 	$cached = [
 		'tipo'      => get_post_meta( $alerta->ID, 'tipo_alerta', true ) ?: 'info',
 		'titulo'    => get_the_title( $alerta ),
-		'mensaje'   => $alerta->post_excerpt,
+		'mensaje'   => get_post_meta( $alerta->ID, 'mensaje', true ),
 		'alert_key' => $alerta->ID . '-' . strtotime( $alerta->post_modified ),
 	];
 	set_transient( 'intt_alerta_activa', $cached, 60 );
