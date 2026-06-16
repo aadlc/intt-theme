@@ -8,6 +8,79 @@ Requires PHP: 8.0
 Text Domain: intt-theme
 */
 
+/* ── Barra de alerta ──────────────────────────────────────────────────────── */
+
+.intt-alert {
+	width: 100%;
+}
+
+.intt-alert__inner {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: var(--wp--preset--spacing--sp-16);
+	max-width: var(--wp--style--global--wide-size);
+	margin-inline: auto;
+	padding: var(--wp--preset--spacing--sp-16) var(--wp--preset--spacing--sp-24);
+}
+
+.intt-alert__main {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--sp-8);
+}
+
+.intt-alert__header {
+	display: flex;
+	align-items: center;
+	gap: var(--wp--preset--spacing--sp-8);
+}
+
+.intt-alert__icon {
+	flex-shrink: 0;
+	display: flex;
+}
+
+.intt-alert__title {
+	font-weight: 600;
+}
+
+.intt-alert__body {
+	margin: 0;
+	font-size: var(--wp--preset--font-size--body-2);
+}
+
+.intt-alert__close {
+	flex-shrink: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 1.25rem;
+	line-height: 1;
+	padding: 0;
+	color: inherit;
+	opacity: 0.7;
+}
+
+.intt-alert__close:hover {
+	opacity: 1;
+}
+
+.intt-alert--info {
+	background-color: var(--wp--preset--color--azul-electrico-50);
+	color: var(--wp--preset--color--azul-electrico-700);
+}
+
+.intt-alert--warning {
+	background-color: var(--wp--preset--color--amarillo-oro-50);
+	color: var(--wp--preset--color--amarillo-oro-800);
+}
+
+.intt-alert--emergency {
+	background-color: var(--wp--preset--color--rojo-carmesi-50);
+	color: var(--wp--preset--color--rojo-carmesi-700);
+}
+
 /* ── Tarjetas de trámite ──────────────────────────────────────────────────── */
 
 .intt-tarjeta-tramite {
