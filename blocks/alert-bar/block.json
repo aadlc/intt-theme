@@ -4,7 +4,7 @@
   "name": "intt/alert-bar",
   "title": "Alert Bar",
   "description": "Muestra la alerta activa del sitio.",
-  "category": "text",
+  "category": "widgets",
   "textdomain": "intt-theme",
   "render": "file:./render.php",
   "editorScript": "file:./editor.js",

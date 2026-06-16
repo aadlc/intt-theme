@@ -1,56 +1,16 @@
 <?php
-$ahora  = gmdate( 'Y-m-d H:i:s' ); // UTC — independiente de la zona horaria de WordPress
-$cached = get_transient( 'intt_alerta_activa' );
+$alerta = intt_get_active_alert();
+if ( ! $alerta ) return;
 
-if ( false === $cached ) {
-	// fecha_inicio vacía = activa inmediatamente; con valor = comparar contra UTC
-	// fecha_expiracion vacía = nunca expira; con valor = comparar contra UTC
-	$alertas = get_posts( [
-		'post_type'      => 'alerta_intt',
-		'posts_per_page' => 1,
-		'post_status'    => 'publish',
-		'orderby'        => 'date',
-		'order'          => 'DESC',
-		'meta_query'     => [
-			'relation' => 'AND',
-			[
-				'relation' => 'OR',
-				[ 'key' => 'fecha_inicio', 'compare' => 'NOT EXISTS' ],
-				[ 'key' => 'fecha_inicio', 'value' => '', 'compare' => '=' ],
-				[ 'key' => 'fecha_inicio', 'value' => $ahora, 'compare' => '<=', 'type' => 'DATETIME' ],
-			],
-			[
-				'relation' => 'OR',
-				[ 'key' => 'fecha_expiracion', 'compare' => 'NOT EXISTS' ],
-				[ 'key' => 'fecha_expiracion', 'value' => '', 'compare' => '=' ],
-				[ 'key' => 'fecha_expiracion', 'value' => $ahora, 'compare' => '>=', 'type' => 'DATETIME' ],
-			],
-		],
-	] );
+$tipo      = $alerta['tipo'];
+$titulo    = $alerta['titulo'];
+$mensaje   = $alerta['mensaje'];
+$alert_key = $alerta['alert_key'];
 
-	if ( empty( $alertas ) ) {
-		set_transient( 'intt_alerta_activa', 'none', 60 );
-		return;
-	}
-
-	$alerta = $alertas[0];
-	$cached = [
-		'tipo'      => get_post_meta( $alerta->ID, 'tipo_alerta', true ) ?: 'info',
-		'titulo'    => get_the_title( $alerta ),
-		'mensaje'   => get_post_meta( $alerta->ID, 'mensaje', true ),
-		'alert_key' => $alerta->ID . '-' . strtotime( $alerta->post_modified ),
-	];
-	set_transient( 'intt_alerta_activa', $cached, 60 );
-}
-
-if ( 'none' === $cached ) {
+// No renderizar si no hay contenido visible
+if ( '' === trim( $titulo ) && '' === trim( wp_strip_all_tags( $mensaje ) ) ) {
 	return;
 }
-
-$tipo      = in_array( $cached['tipo'], [ 'info', 'warning', 'emergency' ], true ) ? $cached['tipo'] : 'info';
-$titulo    = $cached['titulo'];
-$mensaje   = $cached['mensaje'];
-$alert_key = $cached['alert_key'];
 
 $iconos = [
 	'info'      => '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
@@ -67,7 +27,7 @@ $iconos = [
 	<div class="intt-alert__inner">
 		<div class="intt-alert__main">
 			<div class="intt-alert__header">
-				<span class="intt-alert__icon"><?php echo $iconos[ $tipo ]; // phpcs:ignore WordPress.Security.EscapingOutput ?></span>
+				<span class="intt-alert__icon"><?php echo $iconos[ $tipo ] ?? ''; // phpcs:ignore WordPress.Security.EscapingOutput ?></span>
 				<?php if ( $titulo ) : ?>
 					<strong class="intt-alert__title"><?php echo esc_html( $titulo ); ?></strong>
 				<?php endif; ?>

@@ -95,6 +95,18 @@ function intt_alerta_meta_box_html( $post ) {
 		'emergency' => 'Emergencia',
 	];
 	?>
+	<div class="notice notice-info inline" style="margin:12px 0;">
+		<p>
+			<strong>¿Cómo funciona?</strong><br>
+			Esta alerta aparece en la parte superior de todas las páginas del sitio mientras esté publicada y dentro del rango de fechas configurado.
+			El visitante puede cerrarla — la decisión se guarda en su navegador y no vuelve a aparecer a menos que la alerta sea editada.
+			<br><br>
+			<strong>Título:</strong> encabezado visible de la alerta.<br>
+			<strong>Mensaje:</strong> texto opcional. Admite enlaces <code>&lt;a href="..."&gt;</code>.<br>
+			<strong>Fecha de inicio:</strong> vacío = activa al publicar.<br>
+			<strong>Fecha de expiración:</strong> vacío = sin vencimiento (despublicar el post para desactivarla).
+		</p>
+	</div>
 	<table class="form-table">
 		<tr>
 			<th><label for="tipo_alerta">Tipo</label></th>
@@ -131,6 +143,10 @@ function intt_alerta_meta_box_html( $post ) {
 }
 
 add_action( 'save_post_alerta_intt', function ( $post_id ) {
+	// Evita bucle infinito: wp_update_post dentro de save_post re-dispara este hook
+	static $en_proceso = false;
+	if ( $en_proceso ) return;
+
 	if ( ! isset( $_POST['alerta_intt_nonce'] ) || ! wp_verify_nonce( $_POST['alerta_intt_nonce'], 'alerta_intt_meta_save' ) ) {
 		return;
 	}
@@ -139,6 +155,71 @@ add_action( 'save_post_alerta_intt', function ( $post_id ) {
 	}
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
+	}
+
+	// Validaciones al publicar
+	$publicando   = ( $_POST['post_status'] ?? '' ) === 'publish';
+	$ahora_utc    = gmdate( 'Y-m-d H:i:s' );
+	$inicio_local = sanitize_text_field( $_POST['fecha_inicio']     ?? '' );
+	$expira_local = sanitize_text_field( $_POST['fecha_expiracion'] ?? '' );
+	$inicio_utc   = intt_alerta_local_a_utc( $inicio_local );
+	$expira_utc   = intt_alerta_local_a_utc( $expira_local );
+	$errores      = [];
+
+	if ( $publicando ) {
+		// 0. Al menos título o mensaje deben estar presentes
+		$titulo_vacio  = empty( trim( $_POST['post_title'] ?? '' ) );
+		$mensaje_vacio = empty( trim( $_POST['mensaje']     ?? '' ) );
+		if ( $titulo_vacio && $mensaje_vacio ) {
+			$errores[] = 'La alerta debe tener al menos un título o un mensaje.';
+		}
+
+		// 1. Expiración no puede estar en el pasado
+		if ( $expira_utc && $expira_utc < $ahora_utc ) {
+			$errores[] = 'La fecha de expiración ya pasó. Corrígela o déjala vacía.';
+		}
+
+		// 2. Inicio debe ser anterior a expiración
+		if ( $inicio_utc && $expira_utc && $inicio_utc >= $expira_utc ) {
+			$errores[] = 'La fecha de inicio debe ser anterior a la fecha de expiración.';
+		}
+
+		// 3. Sin solapamiento con otras alertas publicadas
+		if ( empty( $errores ) ) {
+			$existentes = get_posts( [
+				'post_type'      => 'alerta_intt',
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'exclude'        => [ $post_id ],
+				'fields'         => 'ids',
+			] );
+
+			foreach ( $existentes as $id_ex ) {
+				$inicio_ex = get_post_meta( $id_ex, 'fecha_inicio',     true );
+				$expira_ex = get_post_meta( $id_ex, 'fecha_expiracion', true );
+
+				// No hay solapamiento si el nuevo termina antes de que el otro empiece,
+				// o si el otro termina antes de que el nuevo empiece
+				$nuevo_antes     = $expira_utc && $inicio_ex && $expira_utc   <= $inicio_ex;
+				$existente_antes = $expira_ex  && $inicio_utc && $expira_ex   <= $inicio_utc;
+
+				if ( ! $nuevo_antes && ! $existente_antes ) {
+					$errores[] = sprintf(
+						'El rango de fechas se solapa con la alerta publicada "%s".',
+						get_the_title( $id_ex )
+					);
+					break;
+				}
+			}
+		}
+
+		if ( ! empty( $errores ) ) {
+			$en_proceso = true;
+			wp_update_post( [ 'ID' => $post_id, 'post_status' => 'draft' ] );
+			$en_proceso = false;
+			set_transient( 'intt_alerta_error_' . $post_id, implode( ' · ', $errores ), 60 );
+			return;
+		}
 	}
 
 	$tipo = sanitize_text_field( $_POST['tipo_alerta'] ?? 'info' );
@@ -158,12 +239,100 @@ add_action( 'save_post_alerta_intt', function ( $post_id ) {
 	delete_transient( 'intt_alerta_activa' );
 } );
 
-// Invalidar caché cuando el estado del post cambia (publicar, despublicar, eliminar)
+// Aviso de error de validación al publicar
+add_action( 'admin_notices', function () {
+	$screen = get_current_screen();
+	if ( ! $screen || 'alerta_intt' !== $screen->post_type ) {
+		return;
+	}
+	$post_id = get_the_ID() ?: ( $_GET['post'] ?? 0 );
+	$error   = get_transient( 'intt_alerta_error_' . $post_id );
+	if ( $error ) {
+		delete_transient( 'intt_alerta_error_' . $post_id );
+		echo '<div class="notice notice-error is-dismissible"><p>' . esc_html( $error ) . '</p></div>';
+	}
+} );
+
+// Invalidar caché cuando el estado del post cambia (publicar, despublicar, trash, untrash)
 add_action( 'transition_post_status', function ( $new, $old, $post ) {
 	if ( 'alerta_intt' === $post->post_type ) {
 		delete_transient( 'intt_alerta_activa' );
 	}
 }, 10, 3 );
+
+// Invalidar caché al eliminar permanentemente
+add_action( 'deleted_post', function ( $post_id ) {
+	if ( get_post_type( $post_id ) === 'alerta_intt' ) {
+		delete_transient( 'intt_alerta_activa' );
+	}
+} );
+
+// ---------- Consulta de alerta activa ----------
+
+function intt_get_active_alert(): ?array {
+	$cached = get_transient( 'intt_alerta_activa' );
+
+	// Validar contenido del transient (puede estar corrupto o sobrescrito por otro plugin)
+	if (
+		false !== $cached &&
+		'none' !== $cached &&
+		( ! is_array( $cached ) || ! isset( $cached['tipo'], $cached['titulo'], $cached['mensaje'], $cached['alert_key'] ) )
+	) {
+		delete_transient( 'intt_alerta_activa' );
+		$cached = false;
+	}
+
+	if ( false === $cached ) {
+		$ahora   = gmdate( 'Y-m-d H:i:s' );
+		$alertas = get_posts( [
+			'post_type'      => 'alerta_intt',
+			'posts_per_page' => 1,
+			'post_status'    => 'publish',
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+			'meta_query'     => [
+				'relation' => 'AND',
+				[
+					'relation' => 'OR',
+					[ 'key' => 'fecha_inicio', 'compare' => 'NOT EXISTS' ],
+					[ 'key' => 'fecha_inicio', 'value' => '', 'compare' => '=' ],
+					[ 'key' => 'fecha_inicio', 'value' => $ahora, 'compare' => '<=', 'type' => 'DATETIME' ],
+				],
+				[
+					'relation' => 'OR',
+					[ 'key' => 'fecha_expiracion', 'compare' => 'NOT EXISTS' ],
+					[ 'key' => 'fecha_expiracion', 'value' => '', 'compare' => '=' ],
+					[ 'key' => 'fecha_expiracion', 'value' => $ahora, 'compare' => '>=', 'type' => 'DATETIME' ],
+				],
+			],
+		] );
+
+		if ( empty( $alertas ) || ! ( $alertas[0] instanceof WP_Post ) ) {
+			set_transient( 'intt_alerta_activa', 'none', HOUR_IN_SECONDS );
+			return null;
+		}
+
+		$alerta = $alertas[0];
+		$cached = [
+			'tipo'      => get_post_meta( $alerta->ID, 'tipo_alerta', true ) ?: 'info',
+			'titulo'    => get_the_title( $alerta ),
+			'mensaje'   => get_post_meta( $alerta->ID, 'mensaje', true ),
+			'alert_key' => $alerta->ID . '-' . strtotime( $alerta->post_modified ),
+		];
+		set_transient( 'intt_alerta_activa', $cached, HOUR_IN_SECONDS );
+	}
+
+	if ( 'none' === $cached ) {
+		return null;
+	}
+
+	return [
+		'tipo'      => in_array( $cached['tipo'], [ 'info', 'warning', 'emergency' ], true ) ? $cached['tipo'] : 'info',
+		'titulo'    => is_string( $cached['titulo'] )    ? $cached['titulo']    : '',
+		'mensaje'   => is_string( $cached['mensaje'] )   ? $cached['mensaje']   : '',
+		'alert_key' => is_string( $cached['alert_key'] ) ? $cached['alert_key'] : '',
+	];
+}
 
 // ---------- Columnas de administración ----------
 
