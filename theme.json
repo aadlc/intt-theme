@@ -1,5 +1,5 @@
 {
-  "$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
   "version": 3,
   "settings": {
     "appearanceTools": true,
@@ -9,7 +9,7 @@
     },
     "spacing": {
       "units": [ "%", "px", "em", "rem", "vh", "vw" ],
-      "spacingScale": { "steps": 0 },
+      "spacingScale": { "steps": 1 },
       "spacingSizes": [
         { "slug": "sp-0",  "size": "0",                            "name": "0px" },
         { "slug": "sp-8",  "size": "0.5rem",                       "name": "8px" },
@@ -174,9 +174,6 @@
     "blocks": {
       "core/site-logo": {
         "css": "& img { width: 150px !important; height: auto; max-height: 56px; object-fit: contain;}"
-      },
-      "core/navigation": {
-        "navigationMenu": { "openOn": "click" }
       }
     }
   }
