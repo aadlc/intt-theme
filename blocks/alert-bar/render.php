@@ -73,7 +73,7 @@ $iconos = [
 				<?php endif; ?>
 			</div>
 			<?php if ( $mensaje ) : ?>
-				<p class="intt-alert__body"><?php echo wp_kses_post( $mensaje ); ?></p>
+				<p class="intt-alert__body"><?php echo wp_kses( $mensaje, [ 'a' => [ 'href' => true, 'target' => true, 'rel' => true ] ] ); ?></p>
 			<?php endif; ?>
 		</div>
 		<button class="intt-alert__close" aria-label="Cerrar alerta">&times;</button>

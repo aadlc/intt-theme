@@ -31,7 +31,11 @@ add_action( 'init', function () {
 	register_post_meta( 'alerta_intt', 'mensaje', [
 		'single'            => true,
 		'type'              => 'string',
-		'sanitize_callback' => 'wp_kses_post',
+		'sanitize_callback' => static function ( $value ) {
+			return wp_kses( $value, [
+				'a' => [ 'href' => true, 'target' => true, 'rel' => true ],
+			] );
+		},
 		'show_in_rest'      => true,
 	] );
 } );
