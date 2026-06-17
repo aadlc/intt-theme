@@ -24,13 +24,14 @@ function intt_registrar_cpt_tramites() {
             'not_found'          => 'No se encontraron trámites.',
             'not_found_in_trash' => 'No hay trámites en la papelera.',
         ],
-        'public'        => true,
-        'has_archive'   => 'tramites',
-        'supports'      => [ 'title', 'editor', 'thumbnail', 'page-attributes' ],
-        'menu_icon'     => 'dashicons-clipboard',
-        'rewrite'       => [ 'slug' => 'tramites/%tipo_tramite%', 'with_front' => false ],
-        'show_in_rest'  => true,
-        'menu_position' => 5,
+        'public'             => true,
+        'show_in_nav_menus'  => true,
+        'has_archive'        => 'tramites',
+        'supports'           => [ 'title', 'editor', 'thumbnail', 'page-attributes' ],
+        'menu_icon'          => 'dashicons-clipboard',
+        'rewrite'            => [ 'slug' => 'tramites/%tipo_tramite%', 'with_front' => false ],
+        'show_in_rest'       => true,
+        'menu_position'      => 5,
     ] );
 
     // Taxonomía jerárquica que impulsa las URLs de los hubs (/tramites/licencias/, etc.)
@@ -42,10 +43,11 @@ function intt_registrar_cpt_tramites() {
             'add_new_item'  => 'Agregar tipo',
             'edit_item'     => 'Editar tipo',
         ],
-        'hierarchical' => true,
-        'public'       => true,
-        'show_in_rest' => true,
-        'rewrite'      => [ 'slug' => 'tramites', 'with_front' => false ],
+        'hierarchical'       => true,
+        'public'             => true,
+        'show_in_rest'       => true,
+        'show_in_nav_menus'  => true,
+        'rewrite'            => [ 'slug' => 'tramites', 'with_front' => false ],
     ] );
 }
 
