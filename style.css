@@ -8,6 +8,28 @@ Requires PHP: 8.0
 Text Domain: intt-theme
 */
 
+/* ── Barra de navegación principal ───────────────────────────────────────── */
+
+.intt-site-nav .alignwide.is-layout-flex {
+	min-height: 78px;
+	align-items: stretch;
+}
+
+.intt-site-nav .wp-block-site-logo,
+.intt-site-nav .wp-block-site-logo a {
+	display: flex;
+	align-items: center;
+}
+
+.intt-site-nav .wp-block-group.is-nowrap:not(.alignwide) {
+	align-items: stretch;
+}
+
+.intt-site-nav .wp-block-buttons {
+	display: flex;
+	align-items: center;
+}
+
 /* ── Barra de alerta ──────────────────────────────────────────────────────── */
 
 .intt-alert {
