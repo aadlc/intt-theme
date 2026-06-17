@@ -30,6 +30,7 @@ Text Domain: intt-theme
 	align-items: center;
 }
 
+
 @media (max-width: 782px) {
 	.intt-site-nav .wp-block-buttons {
 		display: none;

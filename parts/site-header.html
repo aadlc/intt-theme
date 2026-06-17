@@ -1,9 +1,8 @@
 <!-- wp:intt/alert-bar {"lock":{"move":true,"remove":true}} /-->
 
-<!-- wp:group {"align":"full","style":{"spacing":{"blockGap":"0","margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0","left":"var:preset|spacing|0","right":"var:preset|spacing|0"}}},"layout":{"type":"default"}} -->
-<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--0);padding-right:var(--wp--preset--spacing--0);padding-bottom:var(--wp--preset--spacing--0);padding-left:var(--wp--preset--spacing--0)">
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-16","bottom":"var:preset|spacing|sp-16"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-white-background-color has-background has-global-padding is-layout-constrained" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--sp-16);padding-bottom:var(--wp--preset--spacing--sp-16)"><!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+<!-- wp:group {"metadata":{"name":"Cabecera del sitio"},"align":"full","style":{"spacing":{"blockGap":"0","margin":{"top":"0","bottom":"0"},"padding":{"top":"var:preset|spacing|0","bottom":"var:preset|spacing|0","left":"var:preset|spacing|0","right":"var:preset|spacing|0"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group alignfull" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--0);padding-right:var(--wp--preset--spacing--0);padding-bottom:var(--wp--preset--spacing--0);padding-left:var(--wp--preset--spacing--0)"><!-- wp:group {"metadata":{"name":"Barra ministerio"},"align":"full","className":"has-global-padding is-layout-constrained","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-16","bottom":"var:preset|spacing|sp-16"},"margin":{"top":"0","bottom":"0"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull has-global-padding is-layout-constrained has-white-background-color has-background" style="margin-top:0;margin-bottom:0;padding-top:var(--wp--preset--spacing--sp-16);padding-bottom:var(--wp--preset--spacing--sp-16)"><!-- wp:group {"metadata":{"name":"Logos"},"align":"wide","className":"is-content-justification-space-between is-nowrap is-layout-flex wp-block-group-is-layout-flex","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
 <div class="wp-block-group alignwide is-content-justification-space-between is-nowrap is-layout-flex wp-block-group-is-layout-flex"><!-- wp:image {"sizeSlug":"full","linkDestination":"none","style":{"layout":{"selfStretch":"fixed","flexSize":"210px"}}} -->
 <figure class="wp-block-image size-full"><img alt=""/></figure>
 <!-- /wp:image -->
@@ -14,12 +13,16 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"intt-site-nav","style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"azul-marino-500","textColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group intt-site-nav alignfull has-white-color has-azul-marino-500-background-color has-text-color has-background has-link-color has-global-padding is-layout-constrained" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0"><!-- wp:group {"align":"wide","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
+<!-- wp:group {"metadata":{"name":"Barra de navegación"},"align":"full","className":"intt-site-nav has-global-padding is-layout-constrained","style":{"spacing":{"padding":{"top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"elements":{"link":{"color":{"text":"var:preset|color|white"}}}},"backgroundColor":"azul-marino-500","textColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull intt-site-nav has-global-padding is-layout-constrained has-white-color has-azul-marino-500-background-color has-text-color has-background has-link-color" style="margin-top:0;margin-bottom:0;padding-top:0;padding-bottom:0"><!-- wp:group {"metadata":{"name":"Fila navegación"},"align":"wide","className":"is-content-justification-space-between is-nowrap is-layout-flex wp-block-group-is-layout-flex","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between"}} -->
 <div class="wp-block-group alignwide is-content-justification-space-between is-nowrap is-layout-flex wp-block-group-is-layout-flex"><!-- wp:site-logo {"width":120} /-->
 
-<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-<div class="wp-block-group is-nowrap is-layout-flex wp-block-group-is-layout-flex"><!-- wp:intt/megamenu {"triggerLabel":"Menú"} /-->
+<!-- wp:group {"metadata":{"name":"Controles derecha"},"className":"is-nowrap is-layout-flex wp-block-group-is-layout-flex","layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group is-nowrap is-layout-flex wp-block-group-is-layout-flex"><!-- wp:group {"metadata":{"name":"Ítems de nav"},"className":"is-nowrap is-layout-flex wp-block-group-is-layout-flex","style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+<div class="wp-block-group is-nowrap is-layout-flex wp-block-group-is-layout-flex"><!-- wp:intt/nav-item {"url":"#","label":"Ubicaciones","icon":"location"} /-->
+
+<!-- wp:intt/megamenu {"triggerLabel":"Menú"} /--></div>
+<!-- /wp:group -->
 
 <!-- wp:buttons -->
 <div class="wp-block-buttons"><!-- wp:button -->
@@ -30,6 +33,5 @@
 <!-- /wp:group --></div>
 <!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"megamenu-panel","theme":"intt-theme"} /-->
-</div>
+<!-- wp:template-part {"slug":"megamenu-panel","theme":"intt-theme"} /--></div>
 <!-- /wp:group -->

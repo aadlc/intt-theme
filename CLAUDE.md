@@ -416,6 +416,8 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 - [ ] Column count for tramite grids — needs client sign-off
 
 ### Deferred
+- [ ] Refactorizar estilos del trigger del megamenú: extraer `.intt-nav__item` como clase compartida para que el botón Ubicaciones (y futuros ítems de nav) hereden los estilos sin duplicación. Actualmente los estilos viven solo en `.intt-nav__mega-trigger`.
+- [ ] Añadir botón de Ubicaciones en la barra de navegación: ícono + enlace a página, CSS-only usando `wp:navigation-link` con clase `intt-nav__item` una vez refactorizado.
 - [ ] Editor scripts for `hub-list`, `hub-sidebar`, `alert-bar` blocks (remove "unsupported" editor message)
 - [ ] `<main>` landmark on `front-page.html`
 - [ ] Review `single-tramite.html` inline styles
