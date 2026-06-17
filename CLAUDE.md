@@ -404,11 +404,11 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 ### Must verify on new instance
 - [ ] `descripcion_corta` meta box visible on tramite edit screen
 - [ ] Quick Edit shows "Descripción" field and saves correctly
-- [ ] `tipo_tramite` taxonomy visible and working
 - [ ] All templates show lock icon (file-based, not DB)
-- [ ] All 5 custom blocks render without fatal errors
+- [ ] Theme blocks (alert-bar, hub-list, hub-sidebar, tramite-descripcion) render without fatal errors
 
 ### Design decisions pending (need client input)
+- [ ] Revisar espaciado entre elementos de la barra de navegación (trigger, botón Acceder) y entre el panel del megamenú y sus columnas
 - [ ] `single.html` — 740px content width feels narrow, confirm with client
 - [ ] `single.html` — breadcrumbs: add or skip?
 - [ ] Alert bar: reopen affordance (currently dismissed forever via localStorage)
@@ -416,12 +416,12 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 - [ ] Column count for tramite grids — needs client sign-off
 
 ### Deferred
-- [ ] Set up GitHub remote (no remote exists — do this as soon as new instance is stable)
 - [ ] Editor scripts for `hub-list`, `hub-sidebar`, `alert-bar` blocks (remove "unsupported" editor message)
 - [ ] `<main>` landmark on `front-page.html`
 - [ ] Review `single-tramite.html` inline styles
 - [ ] Database cleanup: confirm no leftover `visibilidad-tramite` terms in imported content
 - [ ] Breadcrumbs en archivo y taxonomía: WordPress no incluye el archivo del CPT en la ruta de taxonomía (`Inicio / Trámites / Vehículos` no es posible con el bloque nativo). Crear breadcrumb personalizado con `wp:navigation-link` estáticos o un bloque propio que resuelva la jerarquía CPT → taxonomía → término.
+- [ ] Set up git tracking for `plugins/intt-blocks/` (currently unversioned)
 
 ### Post-import cleanup on new instance
 - [ ] Delete `wp-content/mu-plugins/allow-svg.php` (was added temporarily to allow SVG media upload)
