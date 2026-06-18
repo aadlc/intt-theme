@@ -158,7 +158,7 @@
       },
       "link": {
         "color": { "text": "var(--wp--preset--color--azul-electrico-500)" },
-        "typography": { "fontWeight": "500", "textDecoration": "none" }
+        "typography": { "fontWeight": "400", "textDecoration": "none" }
       },
       "caption": {
         "color": { "text": "var(--wp--preset--color--gris-600)" }
