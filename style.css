@@ -154,7 +154,13 @@ Text Domain: intt-theme
     }
 }
 
-/* ── Lista de trámites en página de taxonomía ────────────────────────────── */
+/* ── Taxonomía: barra lateral y lista ────────────────────────────────────── */
+
+@media (max-width: 782px) {
+    .intt-taxonomy-sidebar {
+        display: none;
+    }
+}
 
 @media (min-width: 783px) {
     .intt-tramite-list {
