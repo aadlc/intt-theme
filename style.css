@@ -153,3 +153,11 @@ Text Domain: intt-theme
         grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
     }
 }
+
+/* ── Lista de trámites en página de taxonomía ────────────────────────────── */
+
+@media (min-width: 783px) {
+    .intt-tramite-list {
+        max-width: 67%;
+    }
+}

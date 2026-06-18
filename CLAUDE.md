@@ -416,6 +416,7 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 - [ ] Column count for tramite grids — needs client sign-off
 
 ### Deferred
+- [ ] Paginación en `taxonomy-tipo_tramite.html`: actualmente `perPage:100` con `inherit:true`. La mayoría de tipos tienen menos de 10 trámites pero algunos podrían superar ese límite. Cuando ocurra, implementar con `inherit:false` y filtro por término de taxonomía actual (el `inherit:true` ignora el `perPage` del bloque y usa el valor del sitio en Ajustes → Lectura).
 - [ ] Refactorizar estilos del trigger del megamenú: extraer `.intt-nav__item` como clase compartida para que el botón Ubicaciones (y futuros ítems de nav) hereden los estilos sin duplicación. Actualmente los estilos viven solo en `.intt-nav__mega-trigger`.
 - [ ] Añadir botón de Ubicaciones en la barra de navegación: ícono + enlace a página, CSS-only usando `wp:navigation-link` con clase `intt-nav__item` una vez refactorizado.
 - [ ] Editor scripts for `hub-list`, `hub-sidebar`, `alert-bar` blocks (remove "unsupported" editor message)
