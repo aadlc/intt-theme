@@ -47,6 +47,7 @@ function intt_registrar_cpt_tramites() {
         'public'             => true,
         'show_in_rest'       => true,
         'show_in_nav_menus'  => true,
+        'show_admin_column'  => true,
         'rewrite'            => [ 'slug' => 'tramites', 'with_front' => false ],
     ] );
 }
@@ -124,7 +125,7 @@ function intt_guardar_descripcion_corta( $post_id ) {
 add_filter( 'manage_tramite_posts_columns', 'intt_columnas_tramite' );
 
 function intt_columnas_tramite( $columns ) {
-    $columns['intt_desc_corta'] = '';
+    $columns['intt_desc_corta'] = 'Descripción corta';
     return $columns;
 }
 
@@ -140,7 +141,7 @@ add_action( 'admin_head', 'intt_ocultar_columna_desc_corta' );
 function intt_ocultar_columna_desc_corta() {
     $screen = get_current_screen();
     if ( ! $screen || $screen->post_type !== 'tramite' ) return;
-    echo '<style>.column-intt_desc_corta { display:none; }</style>';
+    // echo '<style>.column-intt_desc_corta { display:none; }</style>';
 }
 
 add_action( 'quick_edit_custom_box', 'intt_quick_edit_descripcion_corta', 10, 2 );
@@ -158,6 +159,16 @@ function intt_quick_edit_descripcion_corta( $column, $post_type ) {
     </fieldset>
     <?php
 }
+
+// ── Excerpt → descripcion_corta ───────────────────────────────────────────────
+// Hace que wp:post-excerpt muestre descripcion_corta en trámites,
+// sin modificar el template ni el campo excerpt de la BD.
+
+add_filter( 'get_the_excerpt', function ( $excerpt, $post ) {
+    if ( ! $post || $post->post_type !== 'tramite' ) return $excerpt;
+    $desc = get_post_meta( $post->ID, 'descripcion_corta', true );
+    return $desc ?: $excerpt;
+}, 10, 2 );
 
 // ── Orden A-Z en el archivo del CPT y en páginas de taxonomía ────────────────
 

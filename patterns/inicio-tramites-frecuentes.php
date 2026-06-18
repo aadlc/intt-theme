@@ -25,8 +25,8 @@
 <p style="text-transform:uppercase;margin-top:0;margin-bottom:0">Ciudadanos</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"intt-grid-tramites","style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
+<div class="wp-block-group intt-grid-tramites">
 
 <!-- wp:group {"tagName":"article","className":"intt-tarjeta-tramite","style":{"spacing":{"blockGap":"var:preset|spacing|sp-0"}},"layout":{"type":"default"}} -->
 <article class="wp-block-group intt-tarjeta-tramite">
@@ -141,8 +141,8 @@
 <p style="text-transform:uppercase;margin-top:0;margin-bottom:0">Empresas y Operadores</p>
 <!-- /wp:paragraph -->
 
-<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
-<div class="wp-block-group">
+<!-- wp:group {"className":"intt-grid-tramites","style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
+<div class="wp-block-group intt-grid-tramites">
 
 <!-- wp:group {"tagName":"article","className":"intt-tarjeta-tramite","style":{"spacing":{"blockGap":"var:preset|spacing|sp-0"}},"layout":{"type":"default"}} -->
 <article class="wp-block-group intt-tarjeta-tramite">

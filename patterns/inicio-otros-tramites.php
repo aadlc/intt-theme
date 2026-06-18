@@ -16,7 +16,7 @@
 <!-- wp:query {"queryId":0,"query":{"postType":"tramite","perPage":100,"order":"asc","orderBy":"title","inherit":false},"layout":{"type":"default"}} -->
 <div class="wp-block-query">
 
-<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
+<!-- wp:post-template {"className":"intt-grid-tramites","style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
 <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sp-8"}},"layout":{"type":"default"}} -->
 <div class="wp-block-group">
 <!-- wp:post-title {"level":3,"isLink":true,"style":{"spacing":{"margin":{"top":"var:preset|spacing|sp-0","bottom":"var:preset|spacing|sp-16"}}},"fontSize":"heading-5"} /-->
