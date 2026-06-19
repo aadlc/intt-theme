@@ -24,3 +24,5 @@ Thumbs.db
 # WordPress auto-generated
 *.log
 error_log
+
+_tramites-import/

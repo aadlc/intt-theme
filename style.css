@@ -154,6 +154,13 @@ Text Domain: intt-theme
     }
 }
 
+/* ── Pie de página: listas de navegación ────────────────────────────────── */
+
+.intt-footer-nav .wp-block-list {
+    list-style: none;
+    padding-left: 0;
+}
+
 /* ── Taxonomía: barra lateral y lista ────────────────────────────────────── */
 
 .intt-taxonomy-sidebar .wp-block-categories,
