@@ -12,6 +12,7 @@ add_action( 'init', function () {
     register_block_pattern_category( 'intt-componentes', [ 'label' => 'INTT — Componentes' ] );
 }, 1 );
 
+require_once get_template_directory() . '/inc/synced-patterns.php';
 require_once get_template_directory() . '/inc/cpt-tramites.php';
 require_once get_template_directory() . '/inc/alert-bar.php';
 require_once get_template_directory() . '/inc/footer.php';
@@ -35,3 +36,10 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/hub-sidebar' );
     register_block_type( get_template_directory() . '/blocks/tramite-descripcion' );
 }, 5 );
+
+// Allow SVG file uploads in WordPress
+function custom_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'custom_mime_types');

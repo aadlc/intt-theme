@@ -8,6 +8,6 @@ add_filter( 'render_block_core/template-part', function ( $content, $block ) {
         return $content;
     }
 
-    return str_replace( '{year}', date( 'Y' ), $content );
+    return str_replace( '{year}', wp_date( 'Y' ), $content );
 
 }, 10, 2 );

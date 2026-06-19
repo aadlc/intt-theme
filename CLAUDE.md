@@ -391,7 +391,7 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 
 ## Hard rules — never break these
 
-- **No DB-saved templates.** File-based only. If any template in Site Editor lacks a lock icon it is stored in the DB and must be reset (Site Editor → Templates → ⋮ → Reset to default).
+- **No DB-saved templates — except intentional ones.** Structural templates and template parts must be file-based (lock icon in Site Editor). Exceptions: `parts/footer.html` and `parts/banner-ministerio.html` are intentionally DB-saved because they contain client-editable logos. Never reset those two to file default — it would wipe the logos.
 - **No inline colors or typography in block markup.** Style decisions live in `theme.json` and `style.css` only.
 - **Component CSS: structural only.** Custom classes carry layout and spacing only — never redefine colors, hover states, or typography the theme already sets globally.
 - **Never make design decisions unilaterally.** Always ask before choosing layout, colors, font sizes, spacing values, or graphic elements.
@@ -429,3 +429,40 @@ All documentation, comments, inline PHP docblocks, and any user-facing strings i
 ### Post-import cleanup on new instance
 - [ ] Delete `wp-content/mu-plugins/allow-svg.php` (was added temporarily to allow SVG media upload)
 - [ ] Remove `define( 'ALLOW_UNFILTERED_UPLOADS', true )` from `wp-config.php`
+
+---
+
+## Documentación para entrega (handoff)
+
+Temas que deben estar documentados antes de entregar el sitio al cliente o a otro desarrollador.
+
+### Cómo editar contenido que no está en páginas/entradas
+
+- [ ] **Logos de la Barra Ministerio** — Editor de Sitio → Partes de plantilla → banner-ministerio. Es una parte de plantilla independiente; editarla no afecta el resto de la cabecera.
+- [ ] **Logos del pie de página** — Editor de Sitio → Partes de plantilla → footer.
+- [ ] **Redes sociales** — Editor de Sitio → Patrones → "Redes Sociales". Es un patrón sincronizado: actualizarlo aquí lo refleja en todos los lugares donde está insertado. No se puede eliminar (protegido por el tema).
+- [ ] **Año en el pie de página** — Se actualiza automáticamente cada 1 de enero. No requiere intervención.
+
+### Arquitectura: partes de plantilla intencionalmente guardadas en BD
+
+- [ ] Documentar que `footer` y `banner-ministerio` son las únicas partes de plantilla con versión en BD (intencional). Nunca hacer "Restablecer al valor predeterminado" en esas dos partes desde el Editor de Sitio.
+
+### Patrones sincronizados y cómo agregar más
+
+- [ ] Documentar `inc/synced-patterns.php`: cualquier patrón sincronizado nuevo se agrega aquí con `'locked' => true` si no debe poder eliminarse. El patrón se crea automáticamente en BD al activar el tema.
+
+### Plugin intt-blocks
+
+- [ ] Documentar los bloques registrados: `intt/megamenu`, `intt/megamenu-col`, `intt/nav-item`.
+- [ ] Documentar que el plugin requiere un paso de compilación (`npm run build`) si se modifica el código fuente en `src/`.
+- [ ] Documentar que el plugin no está bajo control de versiones (pendiente).
+
+### Tipos de contenido personalizados
+
+- [ ] **Trámites** (`tramite`) — cómo crear, el campo "Descripción corta", la taxonomía `tipo_tramite`.
+- [ ] **Alertas** (`alerta_intt`) — cómo crear una alerta activa y el campo de fecha de expiración.
+
+### Consideraciones de despliegue (LocalWP → Flywheel)
+
+- [ ] El empuje de BD incluye los patrones sincronizados y las partes de plantilla con versión en BD — no se pierde contenido.
+- [ ] En una instalación completamente nueva, `inc/synced-patterns.php` recrea los patrones automáticamente, pero hay que reinsertar el patrón de Redes Sociales en el footer manualmente (el ID de referencia cambia).
