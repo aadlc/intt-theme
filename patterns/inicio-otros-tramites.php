@@ -13,7 +13,7 @@
 <h2 class="wp-block-heading" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--sp-32)">Otros trámites</h2>
 <!-- /wp:heading -->
 
-<!-- wp:query {"queryId":0,"query":{"postType":"tramite","perPage":100,"order":"asc","orderBy":"title","inherit":false},"layout":{"type":"default"}} -->
+<!-- wp:query {"queryId":0,"query":{"postType":"tramite","perPage":12,"order":"asc","orderBy":"title","inherit":false},"layout":{"type":"default"}} -->
 <div class="wp-block-query">
 
 <!-- wp:post-template {"className":"intt-grid-tramites","style":{"spacing":{"blockGap":"var:preset|spacing|sp-24"}},"layout":{"type":"grid","columnCount":4}} -->
