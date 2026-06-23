@@ -35,6 +35,7 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/hub-list' );
     register_block_type( get_template_directory() . '/blocks/hub-sidebar' );
     register_block_type( get_template_directory() . '/blocks/tramite-descripcion' );
+    register_block_type( get_template_directory() . '/blocks/oficina-card' );
 }, 5 );
 
 // Allow SVG file uploads in WordPress

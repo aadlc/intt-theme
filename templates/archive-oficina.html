@@ -1,0 +1,34 @@
+<!-- wp:template-part {"slug":"site-header","theme":"intt-theme","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-64","bottom":"var:preset|spacing|sp-64"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group">
+
+    <!-- wp:heading {"level":1} -->
+    <h1 class="wp-block-heading">Oficinas</h1>
+    <!-- /wp:heading -->
+
+    <!-- wp:query {"query":{"postType":"oficina","perPage":100,"orderby":"title","order":"ASC"},"displayLayout":{"type":"list"}} -->
+    <div class="wp-block-query">
+
+        <!-- wp:post-template -->
+            <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|sp-8"}},"layout":{"type":"flow"}} -->
+            <div class="wp-block-group">
+                <!-- wp:post-title {"level":3} /-->
+                <!-- wp:intt/oficina-card /-->
+            </div>
+            <!-- /wp:group -->
+        <!-- /wp:post-template -->
+
+        <!-- wp:query-no-results -->
+            <!-- wp:paragraph -->
+            <p>No hay oficinas registradas.</p>
+            <!-- /wp:paragraph -->
+        <!-- /wp:query-no-results -->
+
+    </div>
+    <!-- /wp:query -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"intt-theme","tagName":"footer"} /-->

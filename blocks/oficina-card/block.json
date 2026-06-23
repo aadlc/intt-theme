@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/oficina-card",
+  "title": "Datos de la oficina",
+  "description": "Muestra los datos de contacto de una oficina (dirección, jefe, redes sociales).",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "usesContext": [ "postId", "postType" ],
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}
