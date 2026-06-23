@@ -1,0 +1,14 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/estado-list",
+  "title": "Lista de estados",
+  "description": "Lista los estados de oficinas con conteo y enlace al archivo filtrado.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

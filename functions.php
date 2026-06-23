@@ -36,7 +36,16 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/hub-sidebar' );
     register_block_type( get_template_directory() . '/blocks/tramite-descripcion' );
     register_block_type( get_template_directory() . '/blocks/oficina-card' );
+    register_block_type( get_template_directory() . '/blocks/estado-list' );
 }, 5 );
+
+add_action( 'pre_get_posts', function ( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) return;
+    if ( ! $query->is_post_type_archive( 'oficina' ) ) return;
+    $query->set( 'orderby', 'title' );
+    $query->set( 'order', 'ASC' );
+    $query->set( 'posts_per_page', 10 );
+} );
 
 // Allow SVG file uploads in WordPress
 function custom_mime_types($mimes) {

@@ -191,6 +191,25 @@ Text Domain: intt-theme
     font-weight: 600;
 }
 
+.wp-block-categories .count {
+    color: var(--wp--preset--color--gris-400);
+}
+
+.intt-estado-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.intt-oficina-card > * {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.intt-oficina-card > * + * {
+    margin-block-start: var(--wp--preset--spacing--sp-8);
+}
+
 @media (max-width: 782px) {
     .intt-taxonomy-sidebar {
         display: none;

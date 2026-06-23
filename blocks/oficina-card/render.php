@@ -1,41 +1,44 @@
 <?php
 if ( ! function_exists( 'get_field' ) ) return;
 
-$post_id   = $block->context['postId'] ?? get_the_ID();
+$post_id = $block->context['postId'] ?? get_the_ID();
 if ( ! $post_id ) return;
 
-$direccion = get_field( 'direccion',         $post_id );
-$jefe      = get_field( '_jefe_de_oficina',  $post_id );
-$instagram = get_field( 'instagram',         $post_id );
-$x         = get_field( '_x',                $post_id );
-$tiktok    = get_field( 'tiktok',            $post_id );
-$youtube   = get_field( 'youtube',           $post_id );
+$title     = get_the_title( $post_id );
+$direccion = get_field( 'direccion',        $post_id );
+$jefe      = get_field( '_jefe_de_oficina', $post_id );
+$instagram = get_field( 'instagram',        $post_id );
+$tiktok    = get_field( 'tiktok',           $post_id );
+$youtube   = get_field( 'youtube',          $post_id );
 
-$redes = array_filter( [
-    'Instagram' => $instagram,
-    'X/Twitter' => $x,
-    'TikTok'    => $tiktok,
-    'YouTube'   => $youtube,
-] );
+$x_raw = get_field( '_x', $post_id );
+$x_url = is_array( $x_raw ) ? ( $x_raw['url'] ?? '' ) : (string) $x_raw;
+
+$social_items = '';
+if ( $x_url )     $social_items .= '<!-- wp:social-link {"url":"' . esc_url( $x_url )     . '","service":"x"} /-->';
+if ( $instagram ) $social_items .= '<!-- wp:social-link {"url":"' . esc_url( $instagram ) . '","service":"instagram"} /-->';
+if ( $tiktok )    $social_items .= '<!-- wp:social-link {"url":"' . esc_url( $tiktok )    . '","service":"tiktok"} /-->';
+if ( $youtube )   $social_items .= '<!-- wp:social-link {"url":"' . esc_url( $youtube )   . '","service":"youtube"} /-->';
 ?>
-<div class="wp-block-intt-oficina-card">
-    <?php if ( $direccion ) : ?>
-        <p class="oficina-card__direccion"><?php echo esc_html( $direccion ); ?></p>
-    <?php endif; ?>
+<div class="intt-oficina-card">
 
-    <?php if ( $jefe ) : ?>
-        <p class="oficina-card__jefe"><?php echo esc_html( $jefe ); ?></p>
-    <?php endif; ?>
+	<h3 class="wp-block-heading has-heading-4-font-size"><?php echo esc_html( $title ); ?></h3>
 
-    <?php if ( $redes ) : ?>
-        <ul class="oficina-card__redes">
-            <?php foreach ( $redes as $nombre => $url ) : ?>
-                <li>
-                    <a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener noreferrer">
-                        <?php echo esc_html( $nombre ); ?>
-                    </a>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+	<?php if ( $direccion ) : ?>
+	<p><?php echo esc_html( $direccion ); ?></p>
+	<?php endif; ?>
+
+	<?php if ( $jefe ) : ?>
+	<p>Jefe de oficina: <?php echo esc_html( $jefe ); ?></p>
+	<?php endif; ?>
+
+	<?php if ( $social_items ) :
+		echo do_blocks(
+			'<!-- wp:social-links {"iconBackgroundColor":"gris-600","iconBackgroundColorValue":"#757575","size":"has-small-icon-size"} -->' .
+			'<ul class="wp-block-social-links has-small-icon-size has-icon-background-color">' .
+			$social_items .
+			'</ul><!-- /wp:social-links -->'
+		);
+	endif; ?>
+
 </div>
