@@ -41,10 +41,15 @@ add_action( 'init', function () {
 
 add_action( 'pre_get_posts', function ( $query ) {
     if ( is_admin() || ! $query->is_main_query() ) return;
-    if ( ! $query->is_post_type_archive( 'oficina' ) ) return;
+    if ( ! $query->is_post_type_archive( 'oficina' ) && ! $query->is_tax( 'estado' ) ) return;
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'ASC' );
-    $query->set( 'posts_per_page', 10 );
+    if ( $query->is_post_type_archive( 'oficina' ) ) {
+        $query->set( 'posts_per_page', 10 );
+    } else {
+        $query->set( 'post_type', 'oficina' );
+        $query->set( 'posts_per_page', -1 );
+    }
 } );
 
 add_action( 'pre_get_posts', function ( $query ) {
