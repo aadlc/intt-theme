@@ -180,13 +180,18 @@ Text Domain: intt-theme
 
 /* ── Taxonomía: barra lateral y lista ────────────────────────────────────── */
 
+.intt-taxonomy-sidebar .wp-block-heading {
+    margin-block-end: var(--wp--preset--spacing--sp-16);
+}
+
 .intt-taxonomy-sidebar .wp-block-categories,
 .intt-taxonomy-sidebar .wp-block-categories ul {
     list-style: none;
     padding-left: 0;
 }
 
-.wp-block-categories .current-cat > a {
+.wp-block-categories .current-cat > a,
+.intt-estado-list .current-cat > a {
     color: var(--wp--preset--color--azul-electrico-600);
     font-weight: 600;
 }
