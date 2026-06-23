@@ -47,6 +47,12 @@ add_action( 'pre_get_posts', function ( $query ) {
     $query->set( 'posts_per_page', 10 );
 } );
 
+add_action( 'pre_get_posts', function ( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) return;
+    if ( ! $query->is_post_type_archive( 'tramite' ) && ! $query->is_tax( 'tipo_tramite' ) ) return;
+    $query->set( 'posts_per_page', 10 );
+} );
+
 // Allow SVG file uploads in WordPress
 function custom_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
