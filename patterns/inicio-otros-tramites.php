@@ -33,6 +33,8 @@
 
 </div>
 <!-- /wp:query -->
-
+<!-- wp:paragraph -->
+<p><a href="/tramites/">Ver todos los trámites →</a></p>
+<!-- /wp:paragraph -->
 </section>
 <!-- /wp:group -->
