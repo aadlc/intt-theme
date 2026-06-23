@@ -1,0 +1,38 @@
+<!-- wp:template-part {"slug":"site-header","theme":"intt-theme","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-48","bottom":"var:preset|spacing|sp-48"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--sp-48);padding-bottom:var(--wp--preset--spacing--sp-48)">
+
+<!-- wp:query-title {"type":"archive","showPrefix":false,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|sp-32"}}}} /-->
+
+<!-- wp:query {"queryId":0,"query":{"postType":"post","perPage":10,"order":"desc","orderBy":"date","inherit":true},"layout":{"type":"default"}} -->
+<div class="wp-block-query">
+
+<!-- wp:post-template {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"default"}} -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-16","bottom":"var:preset|spacing|sp-16"},"blockGap":"var:preset|spacing|sp-4"},"border":{"bottom":{"color":"var:preset|color|gris-200","width":"1px"}}},"layout":{"type":"default"}} -->
+<div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--sp-16);padding-bottom:var(--wp--preset--spacing--sp-16);border-bottom-color:var(--wp--preset--color--gris-200);border-bottom-width:1px">
+<!-- wp:post-title {"level":3,"isLink":true,"style":{"elements":{"link":{"color":{"text":"var:preset|color|azul-marino-600"}}},"spacing":{"margin":{"top":"0","bottom":"0"}}},"fontSize":"heading-4"} /-->
+<!-- wp:post-date {"style":{"spacing":{"margin":{"top":"0","bottom":"0"}}},"textColor":"gris-600","fontSize":"caption"} /-->
+</div>
+<!-- /wp:group -->
+<!-- /wp:post-template -->
+
+<!-- wp:query-no-results -->
+<!-- wp:paragraph {"textColor":"gris-500"} -->
+<p class="has-gris-500-color has-text-color">No hay noticias publicadas.</p>
+<!-- /wp:paragraph -->
+<!-- /wp:query-no-results -->
+
+<!-- wp:query-pagination {"paginationArrow":"arrow","showLabel":false,"style":{"spacing":{"margin":{"top":"var:preset|spacing|sp-32"}}},"layout":{"type":"flex","justifyContent":"left"}} -->
+<!-- wp:query-pagination-previous /-->
+<!-- wp:query-pagination-numbers /-->
+<!-- wp:query-pagination-next /-->
+<!-- /wp:query-pagination -->
+
+</div>
+<!-- /wp:query -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","theme":"intt-theme","tagName":"footer"} /-->
