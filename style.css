@@ -226,3 +226,14 @@ Text Domain: intt-theme
         max-width: 60%;
     }
 }
+
+@media (max-width: 600px) {
+    .intt-noticias-item {
+        flex-direction: column;
+    }
+    .intt-noticias-item .wp-block-post-featured-image {
+        flex-basis: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
