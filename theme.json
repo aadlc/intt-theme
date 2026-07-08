@@ -131,9 +131,22 @@
       ]
     }
   },
+  "customTemplates": [
+    { "name": "front-page",           "title": "Inicio",                 "postTypes": [] },
+    { "name": "home",                 "title": "Lista de noticias",      "postTypes": [] },
+    { "name": "index",                "title": "Índice",                 "postTypes": [] },
+    { "name": "page",                 "title": "Página",                 "postTypes": [] },
+    { "name": "single",               "title": "Entrada individual",     "postTypes": [] },
+    { "name": "single-tramite",       "title": "Trámite individual",     "postTypes": [] },
+    { "name": "archive",              "title": "Archivo general",        "postTypes": [] },
+    { "name": "archive-tramite",      "title": "Archivo de trámites",    "postTypes": [] },
+    { "name": "archive-oficina",      "title": "Directorio de oficinas", "postTypes": [] },
+    { "name": "taxonomy-tipo_tramite","title": "Categoría de trámite",   "postTypes": [] },
+    { "name": "taxonomy-estado",      "title": "Oficinas por estado",    "postTypes": [] }
+  ],
   "templateParts": [
-    { "area": "header",   "name": "site-header",      "title": "Cabecera del sitio" },
-    { "area": "footer",   "name": "footer",            "title": "Pie de página" },
+    { "area": "header",        "name": "site-header",      "title": "Cabecera del sitio" },
+    { "area": "footer",        "name": "footer",            "title": "Pie de página" },
     { "area": "uncategorized", "name": "banner-ministerio", "title": "Barra ministerial" },
     { "area": "uncategorized", "name": "megamenu-panel",    "title": "Panel de megamenú" }
   ],
