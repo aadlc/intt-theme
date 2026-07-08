@@ -85,7 +85,7 @@
 <!-- /wp:columns -->
 
 <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sp-32","bottom":"0"}}}} -->
-<p style="margin-top:var(--wp--preset--spacing--sp-32);margin-bottom:0"><a href="#">Ver todas las noticias →</a></p>
+<p style="margin-top:var(--wp--preset--spacing--sp-32);margin-bottom:0"><a href="/noticias">Ver todas las noticias →</a></p>
 <!-- /wp:paragraph -->
 
 </section>

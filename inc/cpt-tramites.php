@@ -202,3 +202,12 @@ function intt_resolver_permalink_tramite( $url, $post ) {
 
     return str_replace( '%tipo_tramite%', $slug, $url );
 }
+
+// ── Excerpt ───────────────────────────────────────────────────────────────────
+
+add_filter( 'get_the_excerpt', function ( $excerpt, $post ) {
+    if ( 'tramite' !== $post->post_type || ! empty( $post->post_excerpt ) ) {
+        return $excerpt;
+    }
+    return get_post_meta( $post->ID, 'descripcion_corta', true ) ?: '';
+}, 10, 2 );
