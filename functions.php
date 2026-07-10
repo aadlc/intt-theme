@@ -40,6 +40,7 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/tipo-tramite-list' );
     register_block_type( get_template_directory() . '/blocks/ciudadanos-destacados' );
     register_block_type( get_template_directory() . '/blocks/empresas-destacados' );
+    register_block_type( get_template_directory() . '/blocks/otros-destacados' );
 }, 5 );
 
 add_action( 'pre_get_posts', function ( $query ) {

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/otros-destacados",
+  "title": "Otros trámites destacados",
+  "description": "Muestra hasta 12 trámites: primero los marcados como destacados (por orden de menú), luego rellena con el resto en orden alfabético.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "editorScript": "file:./editor.js",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}
