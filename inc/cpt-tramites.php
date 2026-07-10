@@ -33,6 +33,9 @@ function intt_flush_rewrite_rules() {
 }
 
 // ── Descripción corta ─────────────────────────────────────────────────────────
+// El campo descripcion_corta lo gestiona ACF Pro (grupo "Datos del Trámite").
+// Solo se registra el meta para que esté disponible en la REST API y en
+// el filtro get_the_excerpt.
 
 add_action( 'init', 'intt_registrar_meta_descripcion_corta' );
 
@@ -42,54 +45,8 @@ function intt_registrar_meta_descripcion_corta() {
         'single'            => true,
         'type'              => 'string',
         'sanitize_callback' => 'sanitize_text_field',
-        'auth_callback'     => 'intt_meta_auth_callback',
+        'auth_callback'     => function() { return current_user_can( 'edit_posts' ); },
     ] );
-}
-
-function intt_meta_auth_callback() {
-    return current_user_can( 'edit_posts' );
-}
-
-add_action( 'add_meta_boxes', 'intt_agregar_meta_box_descripcion_corta' );
-
-function intt_agregar_meta_box_descripcion_corta() {
-    add_meta_box(
-        'intt_descripcion_corta',
-        'Descripción corta',
-        'intt_render_meta_box_descripcion_corta',
-        'tramite',
-        'side',
-        'high'
-    );
-}
-
-function intt_render_meta_box_descripcion_corta( $post ) {
-    wp_nonce_field( 'intt_descripcion_corta', 'intt_descripcion_corta_nonce' );
-    $value = get_post_meta( $post->ID, 'descripcion_corta', true );
-    ?>
-    <textarea name="descripcion_corta" rows="3" style="width:100%;resize:vertical"><?php echo esc_textarea( $value ); ?></textarea>
-    <p class="description">Se muestra bajo el título en la página del hub.</p>
-    <?php
-}
-
-add_action( 'save_post_tramite', 'intt_guardar_descripcion_corta' );
-
-function intt_guardar_descripcion_corta( $post_id ) {
-    if ( wp_is_post_autosave( $post_id ) ) return;
-    if ( wp_is_post_revision( $post_id ) ) return;
-    if ( ! isset( $_POST['descripcion_corta'] ) ) return;
-    if ( ! current_user_can( 'edit_post', $post_id ) ) return;
-
-    // Meta box: verificar nonce propio. Quick Edit: confiar en el nonce de WP.
-    if ( isset( $_POST['intt_descripcion_corta_nonce'] ) ) {
-        if ( ! wp_verify_nonce( $_POST['intt_descripcion_corta_nonce'], 'intt_descripcion_corta' ) ) return;
-    }
-
-    update_post_meta(
-        $post_id,
-        'descripcion_corta',
-        sanitize_text_field( wp_unslash( $_POST['descripcion_corta'] ) )
-    );
 }
 
 // ── Quick Edit ────────────────────────────────────────────────────────────────
@@ -114,22 +71,6 @@ function intt_ocultar_columna_desc_corta() {
     $screen = get_current_screen();
     if ( ! $screen || $screen->post_type !== 'tramite' ) return;
     // echo '<style>.column-intt_desc_corta { display:none; }</style>';
-}
-
-add_action( 'quick_edit_custom_box', 'intt_quick_edit_descripcion_corta', 10, 2 );
-
-function intt_quick_edit_descripcion_corta( $column, $post_type ) {
-    if ( $column !== 'intt_desc_corta' || $post_type !== 'tramite' ) return;
-    ?>
-    <fieldset class="inline-edit-col-left" style="width:100%">
-        <div class="inline-edit-col">
-            <label style="display:block">
-                <span class="title">Descripción</span>
-                <textarea name="descripcion_corta" rows="2" style="width:100%"></textarea>
-            </label>
-        </div>
-    </fieldset>
-    <?php
 }
 
 // ── Excerpt → descripcion_corta ───────────────────────────────────────────────
@@ -175,11 +116,3 @@ function intt_resolver_permalink_tramite( $url, $post ) {
     return str_replace( '%tipo_tramite%', $slug, $url );
 }
 
-// ── Excerpt ───────────────────────────────────────────────────────────────────
-
-add_filter( 'get_the_excerpt', function ( $excerpt, $post ) {
-    if ( 'tramite' !== $post->post_type || ! empty( $post->post_excerpt ) ) {
-        return $excerpt;
-    }
-    return get_post_meta( $post->ID, 'descripcion_corta', true ) ?: '';
-}, 10, 2 );
