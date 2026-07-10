@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/empresas-destacados",
+  "title": "Trámites destacados — Empresas y Operadores",
+  "description": "Muestra los 4 trámites marcados como destacados para empresas y operadores.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "editorScript": "file:./editor.js",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}
