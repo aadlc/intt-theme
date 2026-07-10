@@ -10,47 +10,19 @@ add_action( 'init', 'intt_registrar_cpt_tramites' );
 function intt_registrar_cpt_tramites() {
 
     add_rewrite_tag( '%tipo_tramite%', '([^/]+)', 'tipo_tramite=' );
-
-    register_post_type( 'tramite', [
-        'labels' => [
-            'name'               => 'Trámites',
-            'singular_name'      => 'Trámite',
-            'add_new_item'       => 'Agregar trámite',
-            'edit_item'          => 'Editar trámite',
-            'view_item'          => 'Ver trámite',
-            'all_items'          => 'Todos los trámites',
-            'archives'           => 'Trámites',
-            'search_items'       => 'Buscar trámites',
-            'not_found'          => 'No se encontraron trámites.',
-            'not_found_in_trash' => 'No hay trámites en la papelera.',
-        ],
-        'public'             => true,
-        'show_in_nav_menus'  => true,
-        'has_archive'        => 'tramites',
-        'supports'           => [ 'title', 'editor', 'thumbnail', 'page-attributes' ],
-        'menu_icon'          => 'dashicons-clipboard',
-        'rewrite'            => [ 'slug' => 'tramites/%tipo_tramite%', 'with_front' => false ],
-        'show_in_rest'       => true,
-        'menu_position'      => 5,
-    ] );
-
-    // Taxonomía jerárquica que impulsa las URLs de los hubs (/tramites/licencias/, etc.)
-    register_taxonomy( 'tipo_tramite', 'tramite', [
-        'labels' => [
-            'name'          => 'Tipos de trámite',
-            'singular_name' => 'Tipo de trámite',
-            'all_items'     => 'Todos los tipos',
-            'add_new_item'  => 'Agregar tipo',
-            'edit_item'     => 'Editar tipo',
-        ],
-        'hierarchical'       => true,
-        'public'             => true,
-        'show_in_rest'       => true,
-        'show_in_nav_menus'  => true,
-        'show_admin_column'  => true,
-        'rewrite'            => [ 'slug' => 'tramites', 'with_front' => false ],
-    ] );
 }
+
+// ── Rewrite slug: ACF no soporta tokens en el slug, se corrige aquí ──────────
+// ACF registra el CPT con slug plano "tramites". Este filtro lo reemplaza por
+// "tramites/%tipo_tramite%" antes de que WordPress procese el rewrite, evitando
+// la colisión de reglas con el archivo de taxonomía /tramites/licencias/.
+
+add_filter( 'register_post_type_args', function ( $args, $post_type ) {
+    if ( $post_type === 'tramite' ) {
+        $args['rewrite'] = [ 'slug' => 'tramites/%tipo_tramite%', 'with_front' => false ];
+    }
+    return $args;
+}, 10, 2 );
 
 // ── Flush en activación del tema ──────────────────────────────────────────────
 
