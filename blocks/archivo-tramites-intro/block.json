@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/archivo-tramites-intro",
+  "title": "Intro del archivo de trámites",
+  "description": "Muestra el texto introductorio del archivo de trámites desde los ajustes del sitio.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "editorScript": "file:./editor.js",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}

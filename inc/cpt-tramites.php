@@ -77,10 +77,12 @@ function intt_ocultar_columna_desc_corta() {
 // Hace que wp:post-excerpt muestre descripcion_corta en trámites,
 // sin modificar el template ni el campo excerpt de la BD.
 
-add_filter( 'get_the_excerpt', function ( $excerpt, $post ) {
-    if ( ! $post || $post->post_type !== 'tramite' ) return $excerpt;
-    $desc = get_post_meta( $post->ID, 'descripcion_corta', true );
-    return $desc ?: $excerpt;
+add_filter( 'get_the_excerpt', function ( $excerpt, $post = null ) {
+    $post = $post ?: get_post();
+    if ( ! $post || get_post_type( $post ) !== 'tramite' ) return $excerpt;
+    $desc = get_field( 'descripcion_corta', $post->ID );
+    if ( ! empty( $desc ) ) return $desc;
+    return $excerpt;
 }, 10, 2 );
 
 // ── Orden A-Z en el archivo del CPT y en páginas de taxonomía ────────────────

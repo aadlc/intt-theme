@@ -1,0 +1,23 @@
+{
+    "key": "ui_options_page_6a52c6fc0ebeb",
+    "title": "Ajustes de tramites",
+    "active": true,
+    "menu_order": 0,
+    "page_title": "Ajustes de tramites",
+    "menu_slug": "ajustes",
+    "parent_slug": "edit.php?post_type=tramite",
+    "advanced_configuration": 1,
+    "icon_url": "",
+    "menu_title": "Ajustes",
+    "position": "",
+    "redirect": false,
+    "description": "",
+    "menu_icon": [],
+    "update_button": "Actualizar",
+    "updated_message": "Options Updated",
+    "capability": "edit_posts",
+    "data_storage": "options",
+    "post_id": "",
+    "autoload": 0,
+    "modified": 1783813214
+}

@@ -41,6 +41,7 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/ciudadanos-destacados' );
     register_block_type( get_template_directory() . '/blocks/empresas-destacados' );
     register_block_type( get_template_directory() . '/blocks/otros-destacados' );
+    register_block_type( get_template_directory() . '/blocks/archivo-tramites-intro' );
 }, 5 );
 
 add_action( 'pre_get_posts', function ( $query ) {
