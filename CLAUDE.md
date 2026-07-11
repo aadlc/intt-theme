@@ -383,6 +383,34 @@ Crear un bloque dedicado que soporte logo escritorio + logo móvil y renderice u
 
 ---
 
+### blockGap en tarjetas de bloques PHP (`render.php`)
+
+**Problema:** En patrones estáticos (HTML), WordPress genera una clase `wp-container-HASH` con una regla CSS de alta especificidad (clase duplicada, p. ej. `.wp-container-17.wp-container-17`) que anula el blockGap del article contenedor. En bloques PHP (`render.php`) esa clase nunca se genera, por lo que intentar replicar `"style":{"spacing":{"blockGap":"var:preset|spacing|sp-0"}}` con un inline style no funciona.
+
+**Causa raíz:** La regla global de WordPress `.is-layout-flow > * + * { margin-block-start: var(--wp--style--block-gap) }` lee `--wp--style--block-gap` desde el elemento hijo, no desde el padre. Si la `div.intt-tarjeta-tramite__contenido` define `--wp--style--block-gap: sp-8` (para separar su h3 y p internos), ese mismo valor se convierte en el `margin-block-start` del contenido entero — anulando cualquier `sp-0` declarado en el article padre.
+
+**Por qué funciona en patrones estáticos y no en `render.php`:** Para bloques con soporte de espaciado, WordPress genera una regla CSS con clase duplicada para ganar la cascada, p. ej. `.wp-container-17.wp-container-17 > * { margin-block-start: 0 }`. La especificidad duplicada (no `!important`) es lo que vence al selector global. Los bloques PHP (`render.php`) nunca reciben esa clase generada automáticamente, por lo que el override no existe y el valor del hijo gana.
+
+**Solución aplicada** (en `blocks/ciudadanos-destacados/render.php` y `blocks/empresas-destacados/render.php`):
+
+Eliminar `is-layout-flow` y `wp-block-group-is-layout-flow` del elemento `<article>`. La clase `.intt-tarjeta-tramite` ya aplica `display:flex; flex-direction:column` vía CSS. En layout flex, WordPress aplica el blockGap a la propiedad `gap` del contenedor — no a `margin-block-start` de los hijos — por lo que el problema de herencia de la custom property desaparece completamente. Sin `is-layout-flow` en el padre, la regla `> * + *` tampoco se activa.
+
+Adicionalmente, añadir `style="margin:0"` al `<figure>` para neutralizar el margen por defecto del navegador en ese elemento.
+
+```php
+// Correcto — article sin clases is-layout-flow
+<article class="wp-block-group intt-tarjeta-tramite">
+    <figure class="wp-block-image intt-tarjeta-tramite__imagen" style="margin:0">
+    ...
+    <div class="... is-layout-flow ..." style="...--wp--style--block-gap:var(--wp--preset--spacing--sp-8)">
+```
+
+**Regla general:** En un bloque PHP, si el article/card ya es un flex container por CSS, no añadir `is-layout-flow`. Usar `is-layout-flow` solo en divs interiores que necesiten controlar el gap entre sus propios hijos directos.
+
+**Patrón a considerar a futuro:** Ya que `.intt-tarjeta-tramite` es un flex container, se podría declarar `gap` explícitamente en el CSS de ese selector en lugar de depender del mecanismo blockGap de WordPress para el espaciado exterior. Eso eliminaría esta clase de bug de raíz para todas las tarjetas que usen esa clase, sin importar las clases de layout que traiga el markup del bloque.
+
+---
+
 ## Language
 
 All documentation, comments, inline PHP docblocks, and any user-facing strings in the theme must be written in **Spanish**. This applies to README files, code comments, pattern titles, block descriptions, and admin labels. Exception: block JSON `$schema` and WordPress API keys are always in English.
