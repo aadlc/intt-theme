@@ -27,9 +27,9 @@ if ( empty( $posts ) ) {
             $desc   = get_field( 'descripcion_corta', $post->ID );
             $url    = get_permalink( $post );
         ?>
-        <article class="wp-block-group intt-tarjeta-tramite is-layout-flow wp-block-group-is-layout-flow" style="--wp--style--block-gap:var(--wp--preset--spacing--sp-0)">
+        <article class="wp-block-group intt-tarjeta-tramite">
 
-            <figure class="wp-block-image intt-tarjeta-tramite__imagen">
+            <figure class="wp-block-image intt-tarjeta-tramite__imagen" style="margin:0">
                 <?php if ( $imagen ) : ?>
                 <img src="<?php echo esc_url( $imagen ); ?>" alt="<?php echo esc_attr( $post->post_title ); ?>"/>
                 <?php endif; ?>
