@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/estado-cards",
+  "title": "Tarjetas de estados",
+  "description": "Lista los estados como tarjetas con nombre y conteo de oficinas.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "editorScript": "file:./editor.js",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}
