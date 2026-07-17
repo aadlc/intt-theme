@@ -137,6 +137,7 @@ Text Domain: intt-theme
 .intt-tarjeta-tramite {
     overflow: hidden;
     border-radius: var(--wp--custom--radius--lg);
+    border: 1px solid var(--wp--preset--color--gris-300);
     background: white;
     display: flex;
     flex-direction: column;
@@ -153,9 +154,10 @@ Text Domain: intt-theme
     flex: 1;
 }
 
-.intt-tarjeta-tramite__contenido h3 {
-    font-weight: 700;
+.wp-block-heading a {
+    font-weight: inherit;
 }
+
 
 /* ── Grids de trámites: responsividad ────────────────────────────────────── */
 

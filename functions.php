@@ -37,6 +37,7 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/tramite-descripcion' );
     register_block_type( get_template_directory() . '/blocks/oficina-card' );
     register_block_type( get_template_directory() . '/blocks/estado-list' );
+    register_block_type( get_template_directory() . '/blocks/estado-cards' );
     register_block_type( get_template_directory() . '/blocks/tipo-tramite-list' );
     register_block_type( get_template_directory() . '/blocks/ciudadanos-destacados' );
     register_block_type( get_template_directory() . '/blocks/empresas-destacados' );
