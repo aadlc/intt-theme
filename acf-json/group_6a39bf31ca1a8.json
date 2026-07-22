@@ -24,9 +24,9 @@
             "append": ""
         },
         {
-            "key": "field_6a39bf5e8b428",
-            "label": "Jefe de Oficina",
-            "name": "_jefe_de_oficina",
+            "key": "field_6a60cd78a8ff6",
+            "label": "Municipio",
+            "name": "municipio",
             "aria-label": "",
             "type": "text",
             "instructions": "",
@@ -45,11 +45,11 @@
             "append": ""
         },
         {
-            "key": "field_6a39bf928b429",
-            "label": "Instagram",
-            "name": "instagram",
+            "key": "field_6a60cdb9a8ff7",
+            "label": "Ubicacion mapa",
+            "name": "ubicacion_mapa",
             "aria-label": "",
-            "type": "url",
+            "type": "google_map",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -58,33 +58,18 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_6a39bfa58b42a",
-            "label": "X",
-            "name": "_x",
-            "aria-label": "",
-            "type": "link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
+            "center_lat": "",
+            "center_lng": "",
+            "zoom": "",
+            "height": "",
             "allow_in_bindings": 0
         },
         {
-            "key": "field_6a39bfb78b42b",
-            "label": "TikTok",
-            "name": "tiktok",
+            "key": "field_6a60f8edfe119",
+            "label": "Horario de Operación",
+            "name": "horario_de_operacion",
             "aria-label": "",
-            "type": "url",
+            "type": "textarea",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -93,27 +78,12 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "default_value": "Abierto de lunes a viernes: 7:30 AM - 3:30 PM",
+            "maxlength": "",
             "allow_in_bindings": 0,
-            "placeholder": ""
-        },
-        {
-            "key": "field_6a39bfc38b42c",
-            "label": "YouTube",
-            "name": "youtube",
-            "aria-label": "",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "allow_in_bindings": 0,
-            "placeholder": ""
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -137,5 +107,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1783631157
+    "modified": 1784740505
 }
