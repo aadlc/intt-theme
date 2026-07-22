@@ -5,21 +5,26 @@ $post_id = $block->context['postId'] ?? get_the_ID();
 if ( ! $post_id ) return;
 
 $titulo    = get_the_title( $post_id );
-$municipio = get_field( 'municipio',          $post_id );
-$direccion = get_field( 'direccion',          $post_id );
-$horario   = get_field( 'horario_de_operacion', $post_id );
-$mapa      = get_field( 'ubicacion_mapa',     $post_id );
+$municipio     = get_field( 'municipio',            $post_id );
+$direccion     = get_field( 'direccion',            $post_id );
+$horario       = get_field( 'horario_de_operacion', $post_id );
+$grupo_mapa    = get_field( 'ubicacion_en_el_mapa', $post_id );
+$ubicacion_url = ! empty( $grupo_mapa['url_de_google_maps'] ) ? $grupo_mapa['url_de_google_maps'] : '';
+$coordenadas   = ! empty( $grupo_mapa['coordenadas'] )        ? $grupo_mapa['coordenadas']        : '';
 
 $terminos = get_the_terms( $post_id, 'estado' );
 $estado   = ( $terminos && ! is_wp_error( $terminos ) ) ? $terminos[0]->name : '';
 
 $mapa_url = '';
-if ( $mapa ) {
-    if ( ! empty( $mapa['lat'] ) && ! empty( $mapa['lng'] ) ) {
-        $mapa_url = 'https://www.google.com/maps?q=' . rawurlencode( $mapa['lat'] . ',' . $mapa['lng'] );
-    } elseif ( ! empty( $mapa['address'] ) ) {
-        $mapa_url = 'https://www.google.com/maps/search/' . rawurlencode( $mapa['address'] );
+if ( $ubicacion_url ) {
+    $mapa_url = $ubicacion_url;
+} elseif ( $coordenadas ) {
+    $partes = array_map( 'trim', explode( ',', $coordenadas, 2 ) );
+    if ( 2 === count( $partes ) && is_numeric( $partes[0] ) && is_numeric( $partes[1] ) ) {
+        $mapa_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $partes[0] . ',' . $partes[1] );
     }
+} elseif ( $direccion ) {
+    $mapa_url = 'https://www.google.com/maps/search/?api=1&query=' . rawurlencode( $direccion );
 }
 ?>
 <div class="intt-oficina-card">
