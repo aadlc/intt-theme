@@ -9,7 +9,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -30,7 +30,7 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -45,33 +45,13 @@
             "append": ""
         },
         {
-            "key": "field_6a60cdb9a8ff7",
-            "label": "Ubicacion mapa",
-            "name": "ubicacion_mapa",
-            "aria-label": "",
-            "type": "google_map",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "center_lat": "",
-            "center_lng": "",
-            "zoom": "",
-            "height": "",
-            "allow_in_bindings": 0
-        },
-        {
             "key": "field_6a60f8edfe119",
             "label": "Horario de Operación",
             "name": "horario_de_operacion",
             "aria-label": "",
             "type": "textarea",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -84,6 +64,81 @@
             "rows": "",
             "placeholder": "",
             "new_lines": ""
+        },
+        {
+            "key": "field_6a61210a6f4b0",
+            "label": "Ubicación en el Mapa",
+            "name": "ubicacion_en_el_mapa",
+            "aria-label": "",
+            "type": "group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_6a61226681af6",
+                    "label": "Orden de preferencia",
+                    "name": "",
+                    "aria-label": "",
+                    "type": "message",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "1. URL de Google Maps\r\nLa opción más precisa y completa. Pega aquí el link compartido directo desde Google Maps (con foto, horario y reseñas).\r\n\r\n2. Coordenadas\r\nSegunda opción. Pega aquí las coordenadas en formato lat,lng copiadas desde Google Maps (clic derecho → copiar).\r\n\r\n3. Dirección (automática)\r\nOpción menos precisa. Si no completas los campos URL de Google Maps ni Coordenadas, usaremos automáticamente el valor del campo \"Dirección\" en la sección \"Datos de la Oficina\". Google Maps la ubicará, pero puede no ser exacta.",
+                    "new_lines": "wpautop",
+                    "esc_html": 0
+                },
+                {
+                    "key": "field_6a6121a316198",
+                    "label": "URL de Google Maps",
+                    "name": "url_de_google_maps",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Pega aquí el link compartido desde Google Maps. Si no tienes esto, usa las coordenadas",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_6a6121336f4b1",
+                    "label": "Coordenadas",
+                    "name": "coordenadas",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Pega aquí las coordenadas desde Google Maps (clic derecho → copiar). Formato: lat,lng (ej: 10.5,-66.9)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": ""
+                }
+            ]
         }
     ],
     "location": [
@@ -107,5 +162,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1784740505
+    "modified": 1784751078
 }
