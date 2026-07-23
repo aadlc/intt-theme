@@ -247,7 +247,7 @@ Text Domain: intt-theme
 }
 
 .intt-oficinas-filtro {
-    margin-bottom: var(--wp--preset--spacing--sp-32);
+    margin-bottom: var(--wp--preset--spacing--sp-24);
     max-width: 100%
 }
 
@@ -257,91 +257,8 @@ Text Domain: intt-theme
     margin-bottom: var(--wp--preset--spacing--sp-8);
 }
 
-.intt-oficinas-filtro__input {
-    display: block;
-    width: 100%;
-    padding: var(--wp--preset--spacing--sp-8) var(--wp--preset--spacing--sp-16);
-    border: 1px solid var(--wp--preset--color--gris-300);
-    border-radius: var(--wp--custom--radius--md);
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    background-color: #fff;
-    box-sizing: border-box;
-}
-
-.intt-oficinas-filtro__input:focus {
-    outline: none;
-    border-color: var(--wp--preset--color--azul-electrico-500);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--wp--preset--color--azul-electrico-500) 20%, transparent);
-}
-
 .intt-oficinas-sin-resultados {
     color: var(--wp--preset--color--gris-500);
     margin-top: var(--wp--preset--spacing--sp-16);
 }
 
-/* Tom Select — integración con diseño del portal */
-.intt-oficinas-filtro .ts-wrapper {
-    width: 100%;
-}
-
-.intt-oficinas-filtro .ts-control {
-    border: 1px solid var(--wp--preset--color--gris-300);
-    border-radius: var(--wp--custom--radius--md);
-    padding: var(--wp--preset--spacing--sp-8) var(--wp--preset--spacing--sp-16);
-    font-family: inherit;
-    font-size: inherit;
-    color: var(--wp--preset--color--gris-800);
-    background-color: #fff;
-    box-shadow: none;
-    cursor: text;
-}
-
-.intt-oficinas-filtro .ts-wrapper.single .ts-control > input {
-    opacity: 1 !important;
-    width: auto !important;
-    min-width: 4rem;
-    color: var(--wp--preset--color--gris-800);
-    cursor: text;
-}
-
-.intt-oficinas-filtro .ts-wrapper.single.input-active .ts-control {
-    cursor: text;
-}
-
-.intt-oficinas-filtro .ts-wrapper.focus .ts-control {
-    border-color: var(--wp--preset--color--azul-electrico-500);
-    box-shadow: 0 0 0 2px color-mix(in srgb, var(--wp--preset--color--azul-electrico-500) 20%, transparent);
-}
-
-.intt-oficinas-filtro .ts-dropdown {
-    border: 1px solid var(--wp--preset--color--gris-200);
-    border-radius: var(--wp--custom--radius--md);
-    font-family: inherit;
-    font-size: inherit;
-    margin-top: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.intt-oficinas-filtro .ts-dropdown .option {
-    padding: var(--wp--preset--spacing--sp-8) var(--wp--preset--spacing--sp-16);
-    color: var(--wp--preset--color--gris-800);
-}
-
-.intt-oficinas-filtro .ts-dropdown .option.active {
-    background-color: var(--wp--preset--color--azul-electrico-50);
-    color: var(--wp--preset--color--azul-marino-700);
-}
-
-.intt-oficinas-filtro .ts-dropdown .option.selected.active {
-    background-color: var(--wp--preset--color--azul-electrico-100);
-}
-
-.intt-oficinas-filtro .plugin-clear_button .clear-button {
-    color: var(--wp--preset--color--gris-400);
-}
-
-.intt-oficinas-filtro .plugin-clear_button .clear-button:hover {
-    color: var(--wp--preset--color--gris-700);
-}

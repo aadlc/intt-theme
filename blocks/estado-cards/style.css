@@ -1,0 +1,10 @@
+/* Evita FOUC: el <select> nativo permanece visible hasta que Tom Select inicialice */
+.intt-oficinas-filtro select:not(.tomselected) {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #949494;
+    font-family: inherit;
+    font-size: 1rem;
+    box-sizing: border-box;
+}

@@ -10,10 +10,14 @@ if ( is_wp_error( $terms ) || empty( $terms ) ) {
 	echo '<p class="has-gris-500-color has-text-color">No hay estados registrados.</p>';
 	return;
 }
-?>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.min.css">
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js"></script>
 
+wp_enqueue_style(
+    'tom-select',
+    'https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.min.css',
+    [],
+    '2.6.1'
+);
+?>
 <div class="intt-oficinas-directorio">
 
 	<div class="intt-oficinas-filtro">
@@ -42,46 +46,3 @@ if ( is_wp_error( $terms ) || empty( $terms ) ) {
 	<p class="intt-oficinas-sin-resultados" style="display:none">No se encontraron oficinas para ese estado.</p>
 
 </div>
-
-<script>
-( function () {
-	var cards         = document.querySelectorAll( '.intt-tarjeta-tramite[data-estado]' );
-	var sinResultados = document.querySelector( '.intt-oficinas-sin-resultados' );
-
-	function filtrar( value ) {
-		var q        = ( value || '' ).trim();
-		var visibles = 0;
-		cards.forEach( function ( card ) {
-			var oculta = q && card.dataset.estado !== q;
-			card.style.display = oculta ? 'none' : '';
-			if ( ! oculta ) visibles++;
-		} );
-		if ( sinResultados ) {
-			sinResultados.style.display = ( q && visibles === 0 ) ? '' : 'none';
-		}
-	}
-
-	function init() {
-		if ( typeof TomSelect === 'undefined' ) return;
-		new TomSelect( '#intt-filtro-estado', {
-			create:           false,
-			placeholder:      'Selecciona o escribe un estado',
-			allowEmptyOption: false,
-			maxOptions:       null,
-			plugins:          [ 'clear_button' ],
-			onChange:         filtrar,
-			render: {
-				no_results: function () {
-					return '<div class="no-results">No se encontraron resultados</div>';
-				},
-			},
-		} );
-	}
-
-	if ( document.readyState === 'loading' ) {
-		document.addEventListener( 'DOMContentLoaded', init );
-	} else {
-		init();
-	}
-} )();
-</script>
