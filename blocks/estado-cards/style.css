@@ -1,10 +1,29 @@
-/* Evita FOUC: el <select> nativo permanece visible hasta que Tom Select inicialice */
+/* TODO: mover estos estilos a un <style> inline en render.php para eliminar el salto de layout */
 .intt-oficinas-filtro select:not(.tomselected) {
     display: block;
     width: 100%;
-    padding: 8px;
-    border: 1px solid #949494;
-    font-family: inherit;
-    font-size: 1rem;
+    min-height: 48px;
+    padding: 0 16px;
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #303030;
+    font-family: Georama, Helvetica, Arial, sans-serif;
     box-sizing: border-box;
+    cursor: pointer;
+    font-size: var(--wp--preset--font-size--body-1) !important;
+
+}
+
+.intt-oficinas-filtro .ts-control,
+.intt-oficinas-filtro .ts-control input,
+.intt-oficinas-filtro .ts-dropdown {
+    font-size: var(--wp--preset--font-size--body-1) !important;
+}
+
+.intt-oficinas-filtro .ts-control {
+    padding: 16px;
+    border-radius: 8px;
+    min-height: 48px;
+    align-items: center;
 }
