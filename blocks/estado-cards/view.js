@@ -24,6 +24,10 @@
 		maxOptions:       null,
 		plugins:          [ 'clear_button' ],
 		onChange:         filtrar,
+		onInitialize: function () {
+			var label = document.querySelector( 'label[for="intt-filtro-estado"]' );
+			if ( label ) label.setAttribute( 'for', this.control_input.id );
+		},
 		render: {
 			no_results: function () {
 				return '<div class="no-results">No se encontraron resultados</div>';

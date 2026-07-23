@@ -15,7 +15,7 @@ if ( is_wp_error( $terms ) || empty( $terms ) ) {
 <div class="intt-oficinas-directorio">
 
 	<div class="intt-oficinas-filtro">
-		<label class="intt-oficinas-filtro__label" for="intt-filtro-estado">Filtrar por estado</label>
+		<label for="intt-filtro-estado">Filtrar por estado</label>
 		<select class="intt-oficinas-filtro__select" id="intt-filtro-estado" placeholder="Selecciona o escribe un estado">
 			<option value=""></option>
 			<?php foreach ( $terms as $term ) : ?>
