@@ -11,12 +11,6 @@ if ( is_wp_error( $terms ) || empty( $terms ) ) {
 	return;
 }
 
-wp_enqueue_style(
-    'tom-select',
-    'https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.min.css',
-    [],
-    '2.6.1'
-);
 ?>
 <div class="intt-oficinas-directorio">
 

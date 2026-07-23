@@ -1,6 +1,12 @@
 <?php
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'intt-style', get_stylesheet_uri(), [], filemtime( get_template_directory() . '/style.css' ) );
+    wp_enqueue_style(
+        'tom-select',
+        'https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.min.css',
+        [],
+        '2.6.1'
+    );
     wp_register_script(
         'tom-select',
         'https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/js/tom-select.complete.min.js',
