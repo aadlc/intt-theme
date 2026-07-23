@@ -27,3 +27,7 @@
     min-height: 48px;
     align-items: center;
 }
+
+.intt-oficinas-filtro .clear-button {
+    right: 16px!important;
+}
