@@ -46,24 +46,45 @@
         },
         {
             "key": "field_6a60f8edfe119",
-            "label": "Horario de Operación",
-            "name": "horario_de_operacion",
+            "label": "Horario de atención",
+            "name": "horario_de_atencion",
             "aria-label": "",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Abierto de lunes a viernes: 7:30 AM - 3:30 PM",
+            "default_value": "7:30 a.m. a 3:30 p.m.",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": "",
             "placeholder": "",
-            "new_lines": ""
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a6247ea5bf15",
+            "label": "Días",
+            "name": "dias",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "de Lunes a viernes",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6a61210a6f4b0",
@@ -162,5 +183,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1784751078
+    "modified": 1784825875
 }

@@ -7,7 +7,8 @@ if ( ! $post_id ) return;
 $titulo    = get_the_title( $post_id );
 $municipio     = get_field( 'municipio',            $post_id );
 $direccion     = get_field( 'direccion',            $post_id );
-$horario       = get_field( 'horario_de_operacion', $post_id );
+$horario       = get_field( 'horario_de_atencion',  $post_id );
+$dias          = get_field( 'dias',                 $post_id );
 $grupo_mapa    = get_field( 'ubicacion_en_el_mapa', $post_id );
 $ubicacion_url = ! empty( $grupo_mapa['url_de_google_maps'] ) ? $grupo_mapa['url_de_google_maps'] : '';
 $coordenadas   = ! empty( $grupo_mapa['coordenadas'] )        ? $grupo_mapa['coordenadas']        : '';
@@ -40,7 +41,11 @@ if ( $ubicacion_url ) {
 	<?php endif; ?>
 
 	<?php if ( $horario ) : ?>
-	<p class="intt-oficina-card__horario"><?php echo nl2br( esc_html( $horario ) ); ?></p>
+	<p class="intt-oficina-card__horario"><?php echo esc_html( 'Horario de atención: ' . $horario ); ?></p>
+	<?php endif; ?>
+
+	<?php if ( $dias ) : ?>
+	<p class="intt-oficina-card__dias"><?php echo esc_html( 'Días: ' . $dias ); ?></p>
 	<?php endif; ?>
 
 	<?php if ( $mapa_url ) : ?>

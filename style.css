@@ -251,12 +251,6 @@ Text Domain: intt-theme
     max-width: 100%
 }
 
-.intt-oficinas-filtro__label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: var(--wp--preset--spacing--sp-8);
-}
-
 .intt-oficinas-sin-resultados {
     color: var(--wp--preset--color--gris-500);
     margin-top: var(--wp--preset--spacing--sp-16);
