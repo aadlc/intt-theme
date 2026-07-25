@@ -256,3 +256,160 @@ Text Domain: intt-theme
     margin-top: var(--wp--preset--spacing--sp-16);
 }
 
+/* ── Organigrama ─────────────────────────────────────────────────────────── */
+
+/* Nivel Estratégico — columna única centrada con eje rojo */
+.intt-nivel--estrategico {
+    display: flex;
+    justify-content: center;
+}
+
+.intt-cadena-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--wp--preset--spacing--sp-16);
+}
+
+.intt-cadena-central .intt-miembro-card {
+    position: relative;
+}
+
+.intt-cadena-central .intt-miembro-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: var(--wp--preset--spacing--sp-16);
+    background-color: var(--wp--preset--color--rojo-carmesi-500);
+}
+
+/* Niveles de 2 columnas — contenedor de filas con gap real */
+.intt-nivel--2col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--sp-16);
+    --conector-top: 28px;
+    --conector-grosor: 2px;
+}
+
+/* Fila emparejada izq / eje / der */
+.intt-fila {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0 var(--wp--preset--spacing--sp-24);
+    align-items: start;
+}
+
+/* Eje vertical por fila — cubre la fila y puentea el gap inferior */
+.intt-fila-eje {
+    position: relative;
+    width: 2px;
+    align-self: stretch;
+}
+
+.intt-fila:not(:last-child) .intt-fila-eje::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: var(--wp--preset--spacing--sp-16);
+    background-color: inherit;
+}
+
+/* Última fila: el eje termina en el conector, no en el fondo de la tarjeta */
+.intt-fila:last-child .intt-fila-eje {
+    align-self: start;
+    height: calc(var(--conector-top) + var(--conector-grosor));
+}
+
+/* Color del eje por nivel */
+.intt-nivel--asesoria-apoyo .intt-fila-eje {
+    background-color: var(--wp--preset--color--azul-electrico-500);
+}
+
+.intt-nivel--sustantivo .intt-fila-eje {
+    background-color: var(--wp--preset--color--amarillo-oro-700);
+}
+
+/* Tarjeta individual */
+.intt-miembro-card {
+    padding: var(--wp--preset--spacing--sp-16) var(--wp--preset--spacing--sp-24);
+    border: 1px solid var(--wp--preset--color--gris-200);
+    border-radius: var(--wp--custom--radius--md);
+    background-color: var(--wp--preset--color--white);
+    text-align: center;
+}
+
+.intt-miembro-nombre {
+    font-weight: 600;
+    margin-block: 0;
+}
+
+.intt-miembro-cargo {
+    font-size: var(--wp--preset--font-size--body2);
+    color: var(--wp--preset--color--gris-600);
+    margin-block: 0;
+}
+
+/* Celda vacía (columnas disparejas) */
+.intt-card--vacia {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+/* Conectores horizontales — anclados a 28px del borde superior de la tarjeta */
+.intt-card--izq,
+.intt-card--der {
+    position: relative;
+}
+
+.intt-card--izq::after,
+.intt-card--der::before {
+    content: '';
+    position: absolute;
+    top: var(--conector-top);
+    width: var(--wp--preset--spacing--sp-24);
+    height: var(--conector-grosor);
+}
+
+.intt-card--izq::after {
+    right: calc(-1 * var(--wp--preset--spacing--sp-24));
+}
+
+.intt-card--der::before {
+    left: calc(-1 * var(--wp--preset--spacing--sp-24));
+}
+
+/* Color de conectores por nivel */
+.intt-nivel--asesoria-apoyo .intt-card--izq::after,
+.intt-nivel--asesoria-apoyo .intt-card--der::before {
+    background-color: var(--wp--preset--color--azul-electrico-500);
+}
+
+.intt-nivel--sustantivo .intt-card--izq::after,
+.intt-nivel--sustantivo .intt-card--der::before {
+    background-color: var(--wp--preset--color--amarillo-oro-700);
+}
+
+/* Móvil (<600px): apila filas en columna única, oculta eje y conectores */
+@media (max-width: 600px) {
+    .intt-fila {
+        grid-template-columns: 1fr;
+        gap: var(--wp--preset--spacing--sp-16) 0;
+    }
+
+    .intt-fila-eje {
+        display: none;
+    }
+
+    .intt-card--izq::after,
+    .intt-card--der::before {
+        display: none;
+    }
+}
+

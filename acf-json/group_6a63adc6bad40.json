@@ -1,0 +1,79 @@
+{
+    "key": "group_6a63adc6bad40",
+    "title": "Datos persona - Organigrama",
+    "fields": [
+        {
+            "key": "field_6a63ae72bf862",
+            "label": "Cargo",
+            "name": "cargo",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a63da0ba7507",
+            "label": "Columna",
+            "name": "columna",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Posición de la tarjeta dentro de su nivel. Estratégico usa \"Columna única\". Asesoría y Sustantivo usan izquierda o derecha.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "izq": "Columna izquierda",
+                "der": "Columna derecha",
+                "una": "Columna única (Estratégico)"
+            },
+            "default_value": false,
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "organigrama"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1784928844
+}
