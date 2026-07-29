@@ -256,26 +256,3 @@ Text Domain: intt-theme
     margin-top: var(--wp--preset--spacing--sp-16);
 }
 
-/* ── Organigrama — tarjetas ──────────────────────────────────────────────── */
-
-.intt-org-card {
-    background-color: var(--wp--preset--color--white);
-    border: 1px solid var(--wp--preset--color--gris-200);
-    border-radius: var(--wp--custom--radius--md);
-    padding: var(--wp--preset--spacing--sp-16);
-}
-
-.intt-org-card .intt-org-nombre {
-    margin: 0 0 var(--wp--preset--spacing--sp-8);
-    font-weight: 700;
-}
-
-.intt-org-card .intt-org-cargo {
-    margin: 0;
-    color: var(--wp--preset--color--gris-600);
-}
-
-.intt-org-card + .intt-org-card {
-    margin-top: var(--wp--preset--spacing--sp-16);
-}
-
