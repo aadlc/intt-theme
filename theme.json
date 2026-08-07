@@ -150,7 +150,9 @@
     { "area": "uncategorized", "name": "banner-ministerio", "title": "Barra ministerial" },
     { "area": "uncategorized", "name": "megamenu-panel",    "title": "Panel de megamenú" },
     { "area": "uncategorized", "name": "megamenu-nav",      "title": "Megamenú — Navegación" },
-    { "area": "uncategorized", "name": "inicio-acceso",     "title": "Inicio — Acceso rápido" }
+    { "area": "uncategorized", "name": "inicio-acceso",     "title": "Inicio — Acceso rápido" },
+    { "area": "uncategorized", "name": "inicio-hero",       "title": "Inicio — Hero" },
+    { "area": "uncategorized", "name": "inicio-radio",      "title": "Inicio — Radio INTT" }
   ],
   "styles": {
     "spacing": {
