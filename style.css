@@ -187,6 +187,37 @@ Text Domain: intt-theme
 	margin-inline: auto;
 }
 
+/* ── Inicio: acceso rápido a la cuenta ──────────────────────────────────── */
+
+.intt-acceso-cols > .wp-block-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.intt-acceso-item {
+    position: relative;
+    flex: 1;
+    gap: var(--wp--preset--spacing--sp-16);
+}
+
+.intt-acceso-item svg {
+    flex-shrink: 0;
+}
+
+.intt-acceso-item p {
+    margin: 0;
+}
+
+.intt-acceso-item p a {
+    font-weight: inherit;
+}
+
+.intt-acceso-item a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
 /* ── Pie de página: listas de navegación ────────────────────────────────── */
 
 .intt-footer-nav .wp-block-list {
