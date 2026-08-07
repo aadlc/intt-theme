@@ -148,7 +148,8 @@
     { "area": "header",        "name": "site-header",      "title": "Cabecera del sitio" },
     { "area": "footer",        "name": "footer",            "title": "Pie de página" },
     { "area": "uncategorized", "name": "banner-ministerio", "title": "Barra ministerial" },
-    { "area": "uncategorized", "name": "megamenu-panel",    "title": "Panel de megamenú" }
+    { "area": "uncategorized", "name": "megamenu-panel",    "title": "Panel de megamenú" },
+    { "area": "uncategorized", "name": "megamenu-nav",      "title": "Megamenú — Navegación" }
   ],
   "styles": {
     "spacing": {

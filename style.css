@@ -173,6 +173,20 @@ Text Domain: intt-theme
     }
 }
 
+/* ── Panel megamenú ──────────────────────────────────────────────────────── */
+
+/*
+ * El wp:template-part que envuelve megamenu-nav.html no lleva clase align*,
+ * por lo que las reglas de layout constrained lo encogen a content-size (620 px).
+ * display:contents lo hace transparente al box model: el grupo Columnas queda
+ * como hijo virtual directo del panel constrained y recupera el tratamiento
+ * alignwide (max-width: wide-size) sin tocar el markup del part.
+ */
+.intt-megamenu > .wp-block-template-part {
+	max-width: var(--wp--style--global--wide-size);
+	margin-inline: auto;
+}
+
 /* ── Pie de página: listas de navegación ────────────────────────────────── */
 
 .intt-footer-nav .wp-block-list {
