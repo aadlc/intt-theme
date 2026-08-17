@@ -21,6 +21,8 @@
 <!-- wp:intt/ciudadanos-destacados /-->
 
 <!-- wp:intt/empresas-destacados /-->
-
+<!-- wp:paragraph -->
+<p><a href="/tramites/">Ver todos los trámites →</a></p>
+<!-- /wp:paragraph -->
 </section>
 <!-- /wp:group -->

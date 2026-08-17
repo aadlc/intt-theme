@@ -8,18 +8,63 @@
       "wideSize": "1280px"
     },
     "spacing": {
-      "units": [ "%", "px", "em", "rem", "vh", "vw" ],
-      "spacingScale": { "steps": 1 },
+      "units": [
+        "%",
+        "px",
+        "em",
+        "rem",
+        "vh",
+        "vw"
+      ],
+      "spacingScale": {
+        "steps": 1
+      },
       "spacingSizes": [
-        { "slug": "sp-0",  "size": "0",                            "name": "0px" },
-        { "slug": "sp-8",  "size": "0.5rem",                       "name": "8px" },
-        { "slug": "sp-16", "size": "clamp(0.5rem, 1.6vw, 1rem)",   "name": "16px" },
-        { "slug": "sp-24", "size": "clamp(1rem, 2.4vw, 1.5rem)",   "name": "24px" },
-        { "slug": "sp-32", "size": "clamp(1.25rem, 3.2vw, 2rem)",  "name": "32px" },
-        { "slug": "sp-40", "size": "clamp(1.5rem, 4vw, 2.5rem)",   "name": "40px" },
-        { "slug": "sp-48", "size": "clamp(2rem, 4.8vw, 3rem)",     "name": "48px" },
-        { "slug": "sp-64", "size": "clamp(2.5rem, 6.4vw, 4rem)",   "name": "64px" },
-        { "slug": "sp-80", "size": "clamp(3rem, 8vw, 5rem)",       "name": "80px" }
+        {
+          "slug": "sp-0",
+          "size": "0",
+          "name": "0px"
+        },
+        {
+          "slug": "sp-8",
+          "size": "0.5rem",
+          "name": "8px"
+        },
+        {
+          "slug": "sp-16",
+          "size": "clamp(0.5rem, 1.6vw, 1rem)",
+          "name": "16px"
+        },
+        {
+          "slug": "sp-24",
+          "size": "clamp(1rem, 2.4vw, 1.5rem)",
+          "name": "24px"
+        },
+        {
+          "slug": "sp-32",
+          "size": "clamp(1.25rem, 3.2vw, 2rem)",
+          "name": "32px"
+        },
+        {
+          "slug": "sp-40",
+          "size": "clamp(1.5rem, 4vw, 2.5rem)",
+          "name": "40px"
+        },
+        {
+          "slug": "sp-48",
+          "size": "clamp(2rem, 4.8vw, 3rem)",
+          "name": "48px"
+        },
+        {
+          "slug": "sp-64",
+          "size": "clamp(2.5rem, 6.4vw, 4rem)",
+          "name": "64px"
+        },
+        {
+          "slug": "sp-80",
+          "size": "clamp(3rem, 8vw, 5rem)",
+          "name": "80px"
+        }
       ]
     },
     "typography": {
@@ -33,37 +78,79 @@
               "fontFamily": "Georama",
               "fontWeight": "100 900",
               "fontStyle": "normal",
-              "src": [ "file:./assets/fonts/Georama-VariableFont_wdth,wght.ttf" ]
+              "src": [
+                "file:./assets/fonts/Georama-VariableFont_wdth,wght.ttf"
+              ]
             }
           ]
         }
       ],
       "fontSizes": [
-        { "name": "H1", "slug": "heading-1", "size": "3rem" },
-        { "name": "H2", "slug": "heading-2", "size": "2.25rem" },
-        { "name": "H3", "slug": "heading-3", "size": "1.75rem" },
-        { "name": "H4", "slug": "heading-4", "size": "1.375rem" },
-        { "name": "H5", "slug": "heading-5", "size": "1.125rem" },
-        { "name": "H6", "slug": "heading-6", "size": "1rem" },
-        { "name": "Body 1", "slug": "body-1", "size": "1rem" },
-        { "name": "Body 2", "slug": "body-2", "size": "0.875rem" },
-        { "name": "Caption", "slug": "caption", "size": "0.75rem" },
-        { "name": "Overline", "slug": "overline", "size": "0.75rem" }
+        {
+          "name": "H1",
+          "slug": "heading-1",
+          "size": "3rem"
+        },
+        {
+          "name": "H2",
+          "slug": "heading-2",
+          "size": "2.25rem"
+        },
+        {
+          "name": "H3",
+          "slug": "heading-3",
+          "size": "1.75rem"
+        },
+        {
+          "name": "H4",
+          "slug": "heading-4",
+          "size": "1.375rem"
+        },
+        {
+          "name": "H5",
+          "slug": "heading-5",
+          "size": "1.125rem"
+        },
+        {
+          "name": "H6",
+          "slug": "heading-6",
+          "size": "1rem"
+        },
+        {
+          "name": "Body 1",
+          "slug": "body-1",
+          "size": "1rem"
+        },
+        {
+          "name": "Body 2",
+          "slug": "body-2",
+          "size": "0.875rem"
+        },
+        {
+          "name": "Caption",
+          "slug": "caption",
+          "size": "0.75rem"
+        },
+        {
+          "name": "Overline",
+          "slug": "overline",
+          "size": "0.75rem"
+        }
       ],
       "customFontSize": false
     },
     "custom": {
       "radius": {
-        "sm":   "4px",
-        "md":   "8px",
-        "lg":   "16px",
+        "sm": "4px",
+        "md": "8px",
+        "lg": "16px",
         "full": "9999px"
       },
       "font-weight": {
-        "regular":  "400",
-        "medium":   "500",
+        "regular": "400",
+        "medium": "500",
         "semibold": "600",
-        "bold":     "700"
+        "bold": "700"
       }
     },
     "useRootPaddingAwareAlignments": true,
@@ -72,99 +159,374 @@
       "defaultGradients": false,
       "custom": false,
       "palette": [
-        { "slug": "white", "color": "#ffffff", "name": "White" },
-
-        { "slug": "azul-marino-50",  "color": "#e9ebf1", "name": "Azul Marino 50"  },
-        { "slug": "azul-marino-100", "color": "#bcc0d5", "name": "Azul Marino 100" },
-        { "slug": "azul-marino-200", "color": "#9ca1c0", "name": "Azul Marino 200" },
-        { "slug": "azul-marino-300", "color": "#6e76a3", "name": "Azul Marino 300" },
-        { "slug": "azul-marino-400", "color": "#525c91", "name": "Azul Marino 400" },
-        { "slug": "azul-marino-500", "color": "#273376", "name": "Azul Marino 500" },
-        { "slug": "azul-marino-600", "color": "#232e6b", "name": "Azul Marino 600" },
-        { "slug": "azul-marino-700", "color": "#1c2454", "name": "Azul Marino 700" },
-        { "slug": "azul-marino-800", "color": "#151c41", "name": "Azul Marino 800" },
-        { "slug": "azul-marino-900", "color": "#101532", "name": "Azul Marino 900" },
-
-        { "slug": "azul-electrico-50",  "color": "#e8f0fe", "name": "Blue 50"  },
-        { "slug": "azul-electrico-100", "color": "#b9cffb", "name": "Blue 100" },
-        { "slug": "azul-electrico-200", "color": "#97b8f9", "name": "Blue 200" },
-        { "slug": "azul-electrico-300", "color": "#6797f6", "name": "Blue 300" },
-        { "slug": "azul-electrico-400", "color": "#4983f5", "name": "Blue 400" },
-        { "slug": "azul-electrico-500", "color": "#1c64f2", "name": "Blue 500" },
-        { "slug": "azul-electrico-600", "color": "#195bdc", "name": "Blue 600" },
-        { "slug": "azul-electrico-700", "color": "#1447ac", "name": "Blue 700" },
-        { "slug": "azul-electrico-800", "color": "#0f3785", "name": "Blue 800" },
-        { "slug": "azul-electrico-900", "color": "#0c2a66", "name": "Blue 900" },
-
-        { "slug": "amarillo-oro-50",  "color": "#fffae6", "name": "Amarillo Oro 50"  },
-        { "slug": "amarillo-oro-100", "color": "#ffeeb2", "name": "Amarillo Oro 100" },
-        { "slug": "amarillo-oro-200", "color": "#ffe68d", "name": "Amarillo Oro 200" },
-        { "slug": "amarillo-oro-300", "color": "#ffdb59", "name": "Amarillo Oro 300" },
-        { "slug": "amarillo-oro-400", "color": "#ffd439", "name": "Amarillo Oro 400" },
-        { "slug": "amarillo-oro-500", "color": "#ffc907", "name": "Amarillo Oro 500" },
-        { "slug": "amarillo-oro-600", "color": "#e8b706", "name": "Amarillo Oro 600" },
-        { "slug": "amarillo-oro-700", "color": "#b58f05", "name": "Amarillo Oro 700" },
-        { "slug": "amarillo-oro-800", "color": "#8c6f04", "name": "Amarillo Oro 800" },
-        { "slug": "amarillo-oro-900", "color": "#6b5403", "name": "Amarillo Oro 900" },
-
-        { "slug": "rojo-carmesi-50",  "color": "#f6e6eb", "name": "Rojo Carmesí 50"  },
-        { "slug": "rojo-carmesi-100", "color": "#e4b1c1", "name": "Rojo Carmesí 100" },
-        { "slug": "rojo-carmesi-200", "color": "#d78ba3", "name": "Rojo Carmesí 200" },
-        { "slug": "rojo-carmesi-300", "color": "#c45678", "name": "Rojo Carmesí 300" },
-        { "slug": "rojo-carmesi-400", "color": "#b9355e", "name": "Rojo Carmesí 400" },
-        { "slug": "rojo-carmesi-500", "color": "#a70336", "name": "Rojo Carmesí 500" },
-        { "slug": "rojo-carmesi-600", "color": "#980331", "name": "Rojo Carmesí 600" },
-        { "slug": "rojo-carmesi-700", "color": "#770226", "name": "Rojo Carmesí 700" },
-        { "slug": "rojo-carmesi-800", "color": "#5c021e", "name": "Rojo Carmesí 800" },
-        { "slug": "rojo-carmesi-900", "color": "#460117", "name": "Rojo Carmesí 900" },
-
-        { "slug": "gris-50",  "color": "#fafafa", "name": "Gris 50"  },
-        { "slug": "gris-100", "color": "#f5f5f5", "name": "Gris 100" },
-        { "slug": "gris-200", "color": "#eeeeee", "name": "Gris 200" },
-        { "slug": "gris-300", "color": "#e0e0e0", "name": "Gris 300" },
-        { "slug": "gris-400", "color": "#bdbdbd", "name": "Gris 400" },
-        { "slug": "gris-500", "color": "#9e9e9e", "name": "Gris 500" },
-        { "slug": "gris-600", "color": "#757575", "name": "Gris 600" },
-        { "slug": "gris-700", "color": "#616161", "name": "Gris 700" },
-        { "slug": "gris-800", "color": "#424242", "name": "Gris 800" },
-        { "slug": "gris-900", "color": "#212121", "name": "Gris 900" }
+        {
+          "slug": "white",
+          "color": "#ffffff",
+          "name": "White"
+        },
+        {
+          "slug": "azul-marino-50",
+          "color": "#e9ebf1",
+          "name": "Azul Marino 50"
+        },
+        {
+          "slug": "azul-marino-100",
+          "color": "#bcc0d5",
+          "name": "Azul Marino 100"
+        },
+        {
+          "slug": "azul-marino-200",
+          "color": "#9ca1c0",
+          "name": "Azul Marino 200"
+        },
+        {
+          "slug": "azul-marino-300",
+          "color": "#6e76a3",
+          "name": "Azul Marino 300"
+        },
+        {
+          "slug": "azul-marino-400",
+          "color": "#525c91",
+          "name": "Azul Marino 400"
+        },
+        {
+          "slug": "azul-marino-500",
+          "color": "#273376",
+          "name": "Azul Marino 500"
+        },
+        {
+          "slug": "azul-marino-600",
+          "color": "#232e6b",
+          "name": "Azul Marino 600"
+        },
+        {
+          "slug": "azul-marino-700",
+          "color": "#1c2454",
+          "name": "Azul Marino 700"
+        },
+        {
+          "slug": "azul-marino-800",
+          "color": "#151c41",
+          "name": "Azul Marino 800"
+        },
+        {
+          "slug": "azul-marino-900",
+          "color": "#101532",
+          "name": "Azul Marino 900"
+        },
+        {
+          "slug": "azul-electrico-50",
+          "color": "#e8f0fe",
+          "name": "Blue 50"
+        },
+        {
+          "slug": "azul-electrico-100",
+          "color": "#b9cffb",
+          "name": "Blue 100"
+        },
+        {
+          "slug": "azul-electrico-200",
+          "color": "#97b8f9",
+          "name": "Blue 200"
+        },
+        {
+          "slug": "azul-electrico-300",
+          "color": "#6797f6",
+          "name": "Blue 300"
+        },
+        {
+          "slug": "azul-electrico-400",
+          "color": "#4983f5",
+          "name": "Blue 400"
+        },
+        {
+          "slug": "azul-electrico-500",
+          "color": "#1c64f2",
+          "name": "Blue 500"
+        },
+        {
+          "slug": "azul-electrico-600",
+          "color": "#195bdc",
+          "name": "Blue 600"
+        },
+        {
+          "slug": "azul-electrico-700",
+          "color": "#1447ac",
+          "name": "Blue 700"
+        },
+        {
+          "slug": "azul-electrico-800",
+          "color": "#0f3785",
+          "name": "Blue 800"
+        },
+        {
+          "slug": "azul-electrico-900",
+          "color": "#0c2a66",
+          "name": "Blue 900"
+        },
+        {
+          "slug": "amarillo-oro-50",
+          "color": "#fffae6",
+          "name": "Amarillo Oro 50"
+        },
+        {
+          "slug": "amarillo-oro-100",
+          "color": "#ffeeb2",
+          "name": "Amarillo Oro 100"
+        },
+        {
+          "slug": "amarillo-oro-200",
+          "color": "#ffe68d",
+          "name": "Amarillo Oro 200"
+        },
+        {
+          "slug": "amarillo-oro-300",
+          "color": "#ffdb59",
+          "name": "Amarillo Oro 300"
+        },
+        {
+          "slug": "amarillo-oro-400",
+          "color": "#ffd439",
+          "name": "Amarillo Oro 400"
+        },
+        {
+          "slug": "amarillo-oro-500",
+          "color": "#ffc907",
+          "name": "Amarillo Oro 500"
+        },
+        {
+          "slug": "amarillo-oro-600",
+          "color": "#e8b706",
+          "name": "Amarillo Oro 600"
+        },
+        {
+          "slug": "amarillo-oro-700",
+          "color": "#b58f05",
+          "name": "Amarillo Oro 700"
+        },
+        {
+          "slug": "amarillo-oro-800",
+          "color": "#8c6f04",
+          "name": "Amarillo Oro 800"
+        },
+        {
+          "slug": "amarillo-oro-900",
+          "color": "#6b5403",
+          "name": "Amarillo Oro 900"
+        },
+        {
+          "slug": "rojo-carmesi-50",
+          "color": "#f6e6eb",
+          "name": "Rojo Carmesí 50"
+        },
+        {
+          "slug": "rojo-carmesi-100",
+          "color": "#e4b1c1",
+          "name": "Rojo Carmesí 100"
+        },
+        {
+          "slug": "rojo-carmesi-200",
+          "color": "#d78ba3",
+          "name": "Rojo Carmesí 200"
+        },
+        {
+          "slug": "rojo-carmesi-300",
+          "color": "#c45678",
+          "name": "Rojo Carmesí 300"
+        },
+        {
+          "slug": "rojo-carmesi-400",
+          "color": "#b9355e",
+          "name": "Rojo Carmesí 400"
+        },
+        {
+          "slug": "rojo-carmesi-500",
+          "color": "#a70336",
+          "name": "Rojo Carmesí 500"
+        },
+        {
+          "slug": "rojo-carmesi-600",
+          "color": "#980331",
+          "name": "Rojo Carmesí 600"
+        },
+        {
+          "slug": "rojo-carmesi-700",
+          "color": "#770226",
+          "name": "Rojo Carmesí 700"
+        },
+        {
+          "slug": "rojo-carmesi-800",
+          "color": "#5c021e",
+          "name": "Rojo Carmesí 800"
+        },
+        {
+          "slug": "rojo-carmesi-900",
+          "color": "#460117",
+          "name": "Rojo Carmesí 900"
+        },
+        {
+          "slug": "gris-50",
+          "color": "#fafafa",
+          "name": "Gris 50"
+        },
+        {
+          "slug": "gris-100",
+          "color": "#f5f5f5",
+          "name": "Gris 100"
+        },
+        {
+          "slug": "gris-200",
+          "color": "#eeeeee",
+          "name": "Gris 200"
+        },
+        {
+          "slug": "gris-300",
+          "color": "#e0e0e0",
+          "name": "Gris 300"
+        },
+        {
+          "slug": "gris-400",
+          "color": "#bdbdbd",
+          "name": "Gris 400"
+        },
+        {
+          "slug": "gris-500",
+          "color": "#9e9e9e",
+          "name": "Gris 500"
+        },
+        {
+          "slug": "gris-600",
+          "color": "#757575",
+          "name": "Gris 600"
+        },
+        {
+          "slug": "gris-700",
+          "color": "#616161",
+          "name": "Gris 700"
+        },
+        {
+          "slug": "gris-800",
+          "color": "#424242",
+          "name": "Gris 800"
+        },
+        {
+          "slug": "gris-900",
+          "color": "#212121",
+          "name": "Gris 900"
+        }
       ]
     }
   },
   "customTemplates": [
-    { "name": "front-page",           "title": "Inicio",                 "postTypes": [] },
-    { "name": "home",                 "title": "Lista de noticias",      "postTypes": [] },
-    { "name": "index",                "title": "Índice",                 "postTypes": [] },
-    { "name": "page",                 "title": "Página",                 "postTypes": [] },
-    { "name": "single",               "title": "Entrada individual",     "postTypes": [] },
-    { "name": "single-tramite",       "title": "Trámite individual",     "postTypes": [] },
-    { "name": "archive",              "title": "Archivo general",        "postTypes": [] },
-    { "name": "archive-tramite",      "title": "Archivo de trámites",    "postTypes": [] },
-    { "name": "archive-oficina",      "title": "Directorio de oficinas", "postTypes": [] },
-    { "name": "taxonomy-tipo_tramite","title": "Categoría de trámite",   "postTypes": [] },
-    { "name": "taxonomy-estado",      "title": "Oficinas por estado",    "postTypes": [] }
+    {
+      "name": "front-page",
+      "title": "Inicio",
+      "postTypes": []
+    },
+    {
+      "name": "home",
+      "title": "Lista de noticias",
+      "postTypes": []
+    },
+    {
+      "name": "index",
+      "title": "Índice",
+      "postTypes": []
+    },
+    {
+      "name": "page",
+      "title": "Página",
+      "postTypes": []
+    },
+    {
+      "name": "single",
+      "title": "Entrada individual",
+      "postTypes": []
+    },
+    {
+      "name": "single-tramite",
+      "title": "Trámite individual",
+      "postTypes": []
+    },
+    {
+      "name": "archive",
+      "title": "Archivo general",
+      "postTypes": []
+    },
+    {
+      "name": "archive-tramite",
+      "title": "Archivo de trámites",
+      "postTypes": []
+    },
+    {
+      "name": "archive-oficina",
+      "title": "Directorio de oficinas",
+      "postTypes": []
+    },
+    {
+      "name": "taxonomy-tipo_tramite",
+      "title": "Categoría de trámite",
+      "postTypes": []
+    },
+    {
+      "name": "taxonomy-estado",
+      "title": "Oficinas por estado",
+      "postTypes": []
+    }
   ],
   "templateParts": [
-    { "area": "header",        "name": "site-header",      "title": "Cabecera del sitio" },
-    { "area": "footer",        "name": "footer",            "title": "Pie de página" },
-    { "area": "uncategorized", "name": "banner-ministerio", "title": "Barra ministerial" },
-    { "area": "uncategorized", "name": "megamenu-panel",    "title": "Panel de megamenú" },
-    { "area": "uncategorized", "name": "megamenu-nav",      "title": "Megamenú — Navegación" },
-    { "area": "uncategorized", "name": "inicio-acceso",     "title": "Inicio — Acceso rápido" },
-    { "area": "uncategorized", "name": "inicio-hero",       "title": "Inicio — Hero" },
-    { "area": "uncategorized", "name": "inicio-radio",      "title": "Inicio — Radio INTT" }
+    {
+      "area": "header",
+      "name": "site-header",
+      "title": "Cabecera del sitio"
+    },
+    {
+      "area": "footer",
+      "name": "footer",
+      "title": "Pie de página"
+    },
+    {
+      "area": "uncategorized",
+      "name": "banner-ministerio",
+      "title": "Barra ministerial"
+    },
+    {
+      "area": "uncategorized",
+      "name": "megamenu-panel",
+      "title": "Panel de megamenú"
+    },
+    {
+      "area": "uncategorized",
+      "name": "megamenu-nav",
+      "title": "Megamenú — Navegación"
+    },
+    {
+      "area": "uncategorized",
+      "name": "inicio-acceso",
+      "title": "Inicio — Acceso rápido"
+    },
+    {
+      "area": "uncategorized",
+      "name": "inicio-hero",
+      "title": "Inicio — Hero"
+    },
+    {
+      "area": "uncategorized",
+      "name": "inicio-radio",
+      "title": "Inicio — Radio INTT"
+    }
   ],
   "styles": {
     "spacing": {
       "padding": {
-        "top":    "0px",
+        "top": "0px",
         "bottom": "0px",
-        "left":   "var:preset|spacing|sp-24",
-        "right":  "var:preset|spacing|sp-24"
+        "left": "var:preset|spacing|sp-24",
+        "right": "var:preset|spacing|sp-24"
       }
     },
     "color": {
-      "text":       "var(--wp--preset--color--gris-800)",
+      "text": "var(--wp--preset--color--gris-800)",
       "background": "var(--wp--preset--color--white)"
     },
     "typography": {
@@ -173,42 +535,96 @@
     },
     "elements": {
       "heading": {
-        "color": { "text": "var(--wp--preset--color--azul-marino-600)" }
+        "color": {
+          "text": "var(--wp--preset--color--azul-marino-600)"
+        }
       },
       "link": {
-        "color": { "text": "var(--wp--preset--color--azul-electrico-500)" },
-        "typography": { "fontWeight": "400", "textDecoration": "none" }
+        "color": {
+          "text": "var(--wp--preset--color--azul-electrico-500)"
+        },
+        "typography": {
+          "fontWeight": "400",
+          "textDecoration": "none"
+        },
+        ":hover": {
+          "color": {
+            "text": "var(--wp--preset--color--azul-electrico-700)"
+          },
+          "typography": {
+            "textDecoration": "underline"
+          }
+        }
       },
       "caption": {
-        "color": { "text": "var(--wp--preset--color--gris-600)" }
+        "color": {
+          "text": "var(--wp--preset--color--gris-600)"
+        }
       },
       "button": {
-        "border": { "radius": "var:custom|radius|full" },
+        "border": {
+          "radius": "var:custom|radius|full"
+        },
         "color": {
-          "text":       "var(--wp--preset--color--white)",
+          "text": "var(--wp--preset--color--white)",
           "background": "var(--wp--preset--color--azul-electrico-500)"
         }
       },
-      "h1": { "typography": { "fontWeight": "700", "fontSize": "var:preset|font-size|heading-1", "lineHeight": "1.15" } },
-      "h2": { "typography": { "fontWeight": "600", "fontSize": "var:preset|font-size|heading-2", "lineHeight": "1.15" } },
-      "h3": { "typography": { "fontWeight": "600", "fontSize": "var:preset|font-size|heading-3", "lineHeight": "1.25" } },
-      "h4": { "typography": { "fontWeight": "600", "fontSize": "var:preset|font-size|heading-4", "lineHeight": "1.25" } },
-      "h5": { "typography": { "fontWeight": "500", "fontSize": "var:preset|font-size|heading-5", "lineHeight": "1.3" } },
-      "h6": { "typography": { "fontWeight": "500", "fontSize": "var:preset|font-size|heading-6", "lineHeight": "1.3" } }
+      "h1": {
+        "typography": {
+          "fontWeight": "700",
+          "fontSize": "var:preset|font-size|heading-1",
+          "lineHeight": "1.15"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontWeight": "600",
+          "fontSize": "var:preset|font-size|heading-2",
+          "lineHeight": "1.15"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontWeight": "600",
+          "fontSize": "var:preset|font-size|heading-3",
+          "lineHeight": "1.25"
+        }
+      },
+      "h4": {
+        "typography": {
+          "fontWeight": "600",
+          "fontSize": "var:preset|font-size|heading-4",
+          "lineHeight": "1.25"
+        }
+      },
+      "h5": {
+        "typography": {
+          "fontWeight": "500",
+          "fontSize": "var:preset|font-size|heading-5",
+          "lineHeight": "1.3"
+        }
+      },
+      "h6": {
+        "typography": {
+          "fontWeight": "500",
+          "fontSize": "var:preset|font-size|heading-6",
+          "lineHeight": "1.3"
+        }
+      }
     },
     "blocks": {
       "core/site-logo": {
         "css": "& img { width: 150px !important; height: auto; max-height: 56px; object-fit: contain;}"
       },
-      "core/template-part": {                                                                                                                                                                                              
-        "spacing": {                                                                                                                                                                                                       
-          "margin": {                                                                                                                                                                                                      
-            "top": "0",                                                                                                                                                                                                    
-            "bottom": "0"                                                                                                                                                                                                  
-          }                                                                                                                                                                                                                
-        }                                                                                                                                                                                                                  
+      "core/template-part": {
+        "spacing": {
+          "margin": {
+            "top": "0",
+            "bottom": "0"
+          }
+        }
       }
     }
-    
   }
 }

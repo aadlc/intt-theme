@@ -1,6 +1,15 @@
 <?php
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'intt-style', get_stylesheet_uri(), [], filemtime( get_template_directory() . '/style.css' ) );
+    if ( is_front_page() ) {
+        wp_enqueue_script(
+            'intt-inicio',
+            get_template_directory_uri() . '/assets/js/inicio.js',
+            [],
+            filemtime( get_template_directory() . '/assets/js/inicio.js' ),
+            true
+        );
+    }
     wp_enqueue_style(
         'tom-select',
         'https://cdn.jsdelivr.net/npm/tom-select@2.6.1/dist/css/tom-select.min.css',

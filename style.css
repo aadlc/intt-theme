@@ -285,6 +285,16 @@ Text Domain: intt-theme
     }
 }
 
+/* ── Inicio: panel "ver más" de otros trámites ──────────────────────────── */
+
+.intt-otros-panel {
+    display: none;
+}
+
+.intt-otros-panel.is-open {
+    display: block;
+}
+
 /* Filtro de estados — página de oficinas */
 .intt-oficinas-directorio {
     display: flex;
