@@ -227,7 +227,15 @@ Text Domain: intt-theme
 
 /* ── Taxonomía: barra lateral y lista ────────────────────────────────────── */
 
+.intt-taxonomy-sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    padding-right: var(--wp--preset--spacing--sp-24);
+}
+
 .intt-taxonomy-sidebar .wp-block-heading {
+    margin-block-start: var(--wp--preset--spacing--sp-16);
     margin-block-end: var(--wp--preset--spacing--sp-16);
 }
 
@@ -249,8 +257,22 @@ Text Domain: intt-theme
 
 .intt-estado-list {
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    margin-inline-start: calc(-1 * var(--wp--preset--spacing--sp-16));
+}
+
+.intt-estado-list a {
+    display: block;
+    padding: var(--wp--preset--spacing--sp-8) var(--wp--preset--spacing--sp-16);
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.15s ease;
+}
+
+.intt-estado-list a:hover,
+.intt-estado-list a:focus-visible {
+    background-color: var(--wp--preset--color--gris-100);
 }
 
 .intt-oficina-card > * {
