@@ -20,7 +20,7 @@
         "update_item": "Update Tipo de trámite",
         "add_new_item": "Agregar Nuevo Tipo de trámite",
         "new_item_name": "New Tipo de trámite Name",
-        "parent_item": "",
+        "parent_item": "tramtes",
         "parent_item_colon": "",
         "search_items": "Search Tipos de trámite",
         "most_used": "",
@@ -74,5 +74,5 @@
     "meta_box_sanitize_cb": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1783702550
+    "modified": 1787154496
 }

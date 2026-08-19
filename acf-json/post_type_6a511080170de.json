@@ -24,7 +24,7 @@
         "search_items": "Search Tramites ",
         "not_found": "No tramites  found",
         "not_found_in_trash": "No tramites  found in Trash",
-        "archives": "Tramite Archives",
+        "archives": "Tramites",
         "attributes": "Tramite Attributes",
         "featured_image": "",
         "set_featured_image": "",
@@ -76,13 +76,12 @@
     "taxonomies": [
         "tipo_tramite"
     ],
-    "has_archive": false,
-    "has_archive_slug": "",
+    "has_archive": true,
+    "has_archive_slug": "tramites",
     "rewrite": {
-        "permalink_rewrite": "custom_permalink",
-        "slug": "tramites",
+        "permalink_rewrite": "post_type_key",
         "with_front": "1",
-        "feeds": "0",
+        "feeds": "1",
         "pages": "1"
     },
     "query_var": "post_type_key",
@@ -91,5 +90,5 @@
     "delete_with_user": false,
     "register_meta_box_cb": "",
     "enter_title_here": "",
-    "modified": 1783883846
+    "modified": 1786996121
 }
