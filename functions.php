@@ -40,6 +40,7 @@ require_once get_template_directory() . '/inc/alert-bar.php';
 require_once get_template_directory() . '/inc/footer.php';
 require_once get_template_directory() . '/inc/default-pages.php';
 require_once get_template_directory() . '/inc/breadcrumbs.php';
+require_once get_template_directory() . '/inc/tramites-search.php';
 
 add_action( 'admin_enqueue_scripts', function ( $hook ) {
     if ( $hook !== 'edit.php' ) return;
