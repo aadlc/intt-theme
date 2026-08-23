@@ -80,10 +80,35 @@ function intt_ocultar_columna_desc_corta() {
 add_filter( 'get_the_excerpt', function ( $excerpt, $post = null ) {
     $post = $post ?: get_post();
     if ( ! $post || get_post_type( $post ) !== 'tramite' ) return $excerpt;
+
+    if ( is_search() && function_exists( 'relevanssi_do_excerpt' ) ) {
+        $query = trim( get_search_query() );
+        if ( '' !== $query ) return relevanssi_do_excerpt( $post, $query );
+    }
+
     $desc = get_field( 'descripcion_corta', $post->ID );
     if ( ! empty( $desc ) ) return $desc;
     return $excerpt;
 }, 10, 2 );
+
+// Le indica a Relevanssi que use descripcion_corta como fuente al construir
+// su snippet, en lugar del post_content (que solo tiene listas de requisitos).
+add_filter( 'relevanssi_excerpt_content', function ( $content, $post ) {
+    if ( ! $post || get_post_type( $post ) !== 'tramite' ) return $content;
+    $desc = get_field( 'descripcion_corta', $post->ID );
+    return $desc ?: $content;
+}, 10, 2 );
+
+// El bloque wp:post-excerpt pasa el excerpt por wp_trim_words(), que a su vez
+// llama wp_strip_all_tags(). Esto elimina los <strong> que Relevanssi puso al
+// resaltar los términos. Preservamos el HTML original cuando estamos en
+// búsqueda y detectamos highlighting activo.
+add_filter( 'wp_trim_words', function ( $text, $num_words, $more, $original_text ) {
+    if ( is_search() && false !== strpos( $original_text, '<strong>' ) ) {
+        return $original_text;
+    }
+    return $text;
+}, 10, 4 );
 
 // ── Orden A-Z en el archivo del CPT y en páginas de taxonomía ────────────────
 
@@ -92,6 +117,7 @@ add_action( 'pre_get_posts', 'intt_ordenar_tramites_az' );
 function intt_ordenar_tramites_az( $query ) {
     if ( is_admin() || ! $query->is_main_query() ) return;
     if ( ! $query->is_post_type_archive( 'tramite' ) && ! $query->is_tax( 'tipo_tramite' ) ) return;
+    if ( $query->is_search() ) return;
 
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'ASC' );

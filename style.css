@@ -284,6 +284,13 @@ Text Domain: intt-theme
     margin-block-start: var(--wp--preset--spacing--sp-8);
 }
 
+.wp-block-post-excerpt__excerpt strong {
+    background-color: var(--wp--preset--color--amarillo-oro-100);
+    font-weight: 600;
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
 @media (max-width: 782px) {
     .intt-taxonomy-sidebar {
         display: none;
