@@ -49,7 +49,7 @@ if ( $ubicacion_url ) {
 	<?php endif; ?>
 
 	<?php if ( $mapa_url ) : ?>
-	<a class="intt-oficina-card__mapa" href="<?php echo esc_url( $mapa_url ); ?>" target="_blank" rel="noopener noreferrer">Ver en el mapa</a>
+	<p><a class="intt-oficina-card__mapa" href="<?php echo esc_url( $mapa_url ); ?>" target="_blank" rel="noopener noreferrer">Ver en el mapa</a></p>
 	<?php endif; ?>
 
 </div>
