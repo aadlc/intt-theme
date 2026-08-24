@@ -2,21 +2,21 @@
 /**
  * Búsqueda global del sitio.
  *
- * Cuando el usuario llega a /?s= con query vacía (por ejemplo desde el
- * ícono de lupa del header), WordPress devuelve la lista de posts como si
- * no hubiera filtro. Este filtro fuerza cero resultados para que se
- * renderice wp:query-no-results de search.html en su lugar.
+ * Si alguien llega a /?s= con query vacía (URL escrita a mano, bookmark
+ * antiguo, etc.), redirige a /buscar/ que es la landing dedicada. Los
+ * resultados propiamente dichos se renderizan en templates/search.html,
+ * alcanzables solo con /?s=algo.
  */
 
-add_filter( 'posts_pre_query', function ( $posts, $query ) {
-    if ( is_admin() || ! $query->is_main_query() || ! $query->is_search() ) {
-        return $posts;
-    }
-    $s = trim( (string) $query->get( 's' ) );
-    if ( '' === $s ) {
-        $query->found_posts   = 0;
-        $query->max_num_pages = 0;
-        return [];
-    }
-    return $posts;
-}, 100, 2 );
+add_action( 'template_redirect', function () {
+    if ( ! is_search() ) return;
+
+    $s = trim( (string) get_search_query() );
+    if ( '' !== $s ) return;
+
+    $buscar = get_page_by_path( 'buscar' );
+    if ( ! $buscar ) return;
+
+    wp_safe_redirect( get_permalink( $buscar ) );
+    exit;
+} );
