@@ -36,6 +36,7 @@ add_action( 'init', function () {
 
 require_once get_template_directory() . '/inc/synced-patterns.php';
 require_once get_template_directory() . '/inc/cpt-tramites.php';
+require_once get_template_directory() . '/inc/cpt-oficinas.php';
 require_once get_template_directory() . '/inc/alert-bar.php';
 require_once get_template_directory() . '/inc/footer.php';
 require_once get_template_directory() . '/inc/default-pages.php';
@@ -73,6 +74,7 @@ add_action( 'init', function () {
 add_action( 'pre_get_posts', function ( $query ) {
     if ( is_admin() || ! $query->is_main_query() ) return;
     if ( ! $query->is_post_type_archive( 'oficina' ) && ! $query->is_tax( 'estado' ) ) return;
+    if ( $query->is_search() ) return;
     $query->set( 'orderby', 'title' );
     $query->set( 'order', 'ASC' );
     if ( $query->is_post_type_archive( 'oficina' ) ) {

@@ -30,7 +30,9 @@ if ( $ubicacion_url ) {
 ?>
 <div class="intt-oficina-card">
 
+	<?php if ( ! is_singular( 'oficina' ) ) : ?>
 	<h3 class="wp-block-heading has-heading-4-font-size"><?php echo esc_html( $titulo ); ?></h3>
+	<?php endif; ?>
 
 	<?php if ( $estado || $municipio ) : ?>
 	<p class="intt-oficina-card__ubicacion"><?php echo esc_html( implode( ', ', array_filter( [ $estado, $municipio ] ) ) ); ?></p>
