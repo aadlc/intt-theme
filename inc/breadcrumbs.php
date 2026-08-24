@@ -11,12 +11,15 @@
 add_filter( 'block_core_breadcrumbs_items', function ( $items ) {
 
     if ( is_tax( 'tipo_tramite' ) ) {
+        $post_type_obj = get_post_type_object( 'tramite' );
+        $label         = $post_type_obj ? $post_type_obj->labels->name : 'Trámites';
+
         $home = array_shift( $items );
         array_unshift(
             $items,
             $home,
             [
-                'label' => 'Trámites',
+                'label' => $label,
                 'url'   => get_post_type_archive_link( 'tramite' ),
             ]
         );
