@@ -5,7 +5,7 @@
     min-height: 48px;
     padding: 0 16px;
     border: 1px solid #d0d0d0;
-    border-radius: 8px;
+    border-radius: var(--wp--custom--radius--md);
     background-color: #fff;
     color: #303030;
     font-family: Georama, Helvetica, Arial, sans-serif;
@@ -23,7 +23,7 @@
 
 .intt-oficinas-filtro .ts-control {
     padding: 16px;
-    border-radius: 8px;
+    border-radius: var(--wp--custom--radius--md);
     min-height: 48px;
     align-items: center;
 }

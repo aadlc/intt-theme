@@ -31,7 +31,7 @@ Text Domain: intt-theme
 }
 
 
-@media (max-width: 782px) {
+@media (max-width: 783px) {
 	.intt-site-nav .wp-block-buttons {
 		display: none;
 	}
@@ -138,7 +138,7 @@ Text Domain: intt-theme
     overflow: hidden;
     border-radius: var(--wp--custom--radius--lg);
     border: 1px solid var(--wp--preset--color--gris-300);
-    background: white;
+    background: var(--wp--preset--color--white);
     display: flex;
     flex-direction: column;
 }
@@ -161,7 +161,7 @@ Text Domain: intt-theme
 
 /* ── Grids de trámites: responsividad ────────────────────────────────────── */
 
-@media (max-width: 781px) {
+@media (max-width: 783px) {
     .intt-grid-tramites {
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
     }
@@ -265,7 +265,7 @@ Text Domain: intt-theme
 .intt-estado-list a {
     display: block;
     padding: var(--wp--preset--spacing--sp-8) var(--wp--preset--spacing--sp-16);
-    border-radius: 4px;
+    border-radius: var(--wp--custom--radius--sm);
     text-decoration: none;
     transition: background-color 0.15s ease;
 }
@@ -291,13 +291,13 @@ Text Domain: intt-theme
     border-radius: 2px;
 }
 
-@media (max-width: 782px) {
+@media (max-width: 783px) {
     .intt-taxonomy-sidebar {
         display: none;
     }
 }
 
-@media (min-width: 783px) {
+@media (min-width: 784px) {
     .intt-tramite-list {
         max-width: 60%;
     }
