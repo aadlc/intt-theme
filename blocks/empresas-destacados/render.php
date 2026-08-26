@@ -20,7 +20,7 @@ if ( empty( $posts ) ) {
 
     <p style="text-transform:uppercase;margin-top:0;margin-bottom:0">Empresas y Operadores</p>
 
-    <div class="wp-block-group intt-grid-tramites is-layout-grid wp-block-group-is-layout-grid" style="grid-template-columns:repeat(4, minmax(0, 1fr));gap:var(--wp--preset--spacing--sp-24)">
+    <div class="wp-block-group intt-grid-tramites is-layout-grid wp-block-group-is-layout-grid">
 
         <?php foreach ( $posts as $post ) :
             $imagen = get_field( 'imagen_destacada', $post->ID );

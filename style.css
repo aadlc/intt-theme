@@ -159,19 +159,25 @@ Text Domain: intt-theme
 }
 
 
-/* ── Grids de trámites: responsividad ────────────────────────────────────── */
+/* ── Grid de trámites destacados ────────────────────────────────────────── */
+
+.intt-grid-tramites {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--wp--preset--spacing--sp-24);
+}
 
 @media (max-width: 783px) {
     .intt-grid-tramites {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
 @media (max-width: 479px) {
     .intt-grid-tramites {
-        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 }
+
 
 /* ── Panel megamenú ──────────────────────────────────────────────────────── */
 

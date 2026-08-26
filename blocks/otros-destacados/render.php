@@ -50,7 +50,7 @@ if ( empty( $posts ) ) {
     return;
 }
 ?>
-<div class="wp-block-group intt-grid-tramites is-layout-grid wp-block-group-is-layout-grid" style="grid-template-columns:repeat(4, minmax(0, 1fr));gap:var(--wp--preset--spacing--sp-24)">
+<div class="wp-block-group intt-grid-tramites is-layout-grid wp-block-group-is-layout-grid">
 
     <?php foreach ( $posts as $post ) :
         $desc = get_field( 'descripcion_corta', $post->ID );
