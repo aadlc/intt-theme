@@ -137,7 +137,10 @@ function intt_resolver_permalink_tramite( $url, $post ) {
         return str_replace( '%tipo_tramite%', 'sin-categoria', $url );
     }
 
-    // Ordenar por term_id ASC para resultado predecible cuando hay varios términos
+    // Ordenar por term_id ASC para permalinks estables cuando un trámite tiene
+    // varios términos: sin este orden, WordPress puede devolver los términos en
+    // orden variable y el slug del permalink cambiaría según cuál gane el sort,
+    // rompiendo URLs indexadas y compartidas.
     $terms_sorted = wp_list_sort( $terms, [ 'term_id' => 'ASC' ] );
     $slug         = reset( $terms_sorted )->slug;
 

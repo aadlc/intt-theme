@@ -21,6 +21,15 @@ function intt_oficina_excerpt_source( $post_id ) {
     return implode( ' · ', array_filter( [ $lugar, $direccion ] ) );
 }
 
+// Los dos filtros que siguen operan en contextos distintos y por eso no se
+// pueden centralizar:
+//   - `get_the_excerpt` es la API pública de WP: la llaman los bloques
+//     (wp:post-excerpt) para decidir qué texto renderizar en el markup final.
+//   - `relevanssi_excerpt_content` es interno de Relevanssi: le dice al plugin
+//     qué contenido usar como fuente al construir su snippet resaltado
+//     (Relevanssi normalmente lee post_content, pero en oficinas está vacío
+//     porque los datos viven en ACF).
+
 // wp:post-excerpt muestra la línea de ubicación fuera de búsqueda.
 // En búsqueda delega a Relevanssi para snippet con highlighting.
 add_filter( 'get_the_excerpt', function ( $excerpt, $post = null ) {
