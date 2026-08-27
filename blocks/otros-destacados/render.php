@@ -50,6 +50,7 @@ if ( empty( $posts ) ) {
     return;
 }
 ?>
+<?php // Layout responsivo (4→2→1 cols) definido en style.css > .intt-grid-tramites. ?>
 <div class="wp-block-group intt-grid-tramites is-layout-grid wp-block-group-is-layout-grid">
 
     <?php foreach ( $posts as $post ) :

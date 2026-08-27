@@ -161,11 +161,23 @@ Text Domain: intt-theme
 
 /* ── Grid de trámites destacados ────────────────────────────────────────── */
 
+/*
+ * Reglas del grid centralizadas aquí (no inline en los tres render.php de
+ * ciudadanos-destacados, empresas-destacados y otros-destacados) para que las
+ * media queries puedan sobrescribir sin `!important`. Los bloques solo aplican
+ * la clase `.intt-grid-tramites`; el layout completo vive en este archivo.
+ */
 .intt-grid-tramites {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: var(--wp--preset--spacing--sp-24);
 }
 
+/*
+ * Frontera móvil/escritorio: 784px. Se declara como par max-width:783 +
+ * min-width:784 en el resto del archivo para no dejar gap de 1px. Acá solo
+ * necesitamos el lado max porque el default (4 cols) actúa como estilo
+ * escritorio.
+ */
 @media (max-width: 783px) {
     .intt-grid-tramites {
         grid-template-columns: repeat(2, minmax(0, 1fr));

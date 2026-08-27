@@ -20,6 +20,7 @@ if ( empty( $posts ) ) {
 
     <p style="text-transform:uppercase;margin-top:0;margin-bottom:0">Ciudadanos</p>
 
+    <?php // Layout responsivo (4→2→1 cols) definido en style.css > .intt-grid-tramites. ?>
     <div class="wp-block-group intt-grid-tramites is-layout-grid wp-block-group-is-layout-grid">
 
         <?php foreach ( $posts as $post ) :
