@@ -294,7 +294,7 @@ Text Domain: intt-theme
     background-color: var(--wp--preset--color--amarillo-oro-100);
     font-weight: 600;
     padding: 0 2px;
-    border-radius: 2px;
+    border-radius: var(--wp--custom--radius--xs);
 }
 
 @media (max-width: 783px) {
