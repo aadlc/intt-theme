@@ -11,108 +11,108 @@ Text Domain: intt-theme
 /* ── Barra de navegación principal ───────────────────────────────────────── */
 
 .intt-site-nav .alignwide.is-layout-flex {
-	min-height: 78px;
-	align-items: stretch;
+    min-height: 78px;
+    align-items: stretch;
 }
 
 .intt-site-nav .wp-block-site-logo,
 .intt-site-nav .wp-block-site-logo a {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .intt-site-nav .wp-block-group.is-nowrap:not(.alignwide) {
-	align-items: stretch;
+    align-items: stretch;
 }
 
 .intt-site-nav .wp-block-buttons {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 
 @media (max-width: 783px) {
-	.intt-site-nav .wp-block-buttons {
-		display: none;
-	}
+    .intt-site-nav .wp-block-buttons {
+        display: none;
+    }
 }
 
 
 /* ── Barra de alerta ──────────────────────────────────────────────────────── */
 
 .intt-alert {
-	width: 100%;
+    width: 100%;
 }
 
 .intt-alert__inner {
-	display: flex;
-	align-items: flex-start;
-	justify-content: space-between;
-	gap: var(--wp--preset--spacing--sp-16);
-	max-width: var(--wp--style--global--wide-size);
-	margin-inline: auto;
-	padding: var(--wp--preset--spacing--sp-40) var(--wp--preset--spacing--sp-24);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--wp--preset--spacing--sp-16);
+    max-width: var(--wp--style--global--wide-size);
+    margin-inline: auto;
+    padding: var(--wp--preset--spacing--sp-40) var(--wp--preset--spacing--sp-24);
 }
 
 .intt-alert__main {
-	display: flex;
-	flex-direction: column;
-	gap: var(--wp--preset--spacing--sp-8);
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--sp-8);
 }
 
 .intt-alert__header {
-	display: flex;
-	align-items: center;
-	gap: var(--wp--preset--spacing--sp-8);
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--sp-8);
 }
 
 .intt-alert__icon {
-	flex-shrink: 0;
-	display: flex;
+    flex-shrink: 0;
+    display: flex;
 }
 
 .intt-alert__title {
-	font-weight: 600;
-	font-size: var(--wp--preset--font-size--heading-4);
+    font-weight: 600;
+    font-size: var(--wp--preset--font-size--heading-4);
 }
 
 .intt-alert__body {
-	margin: 0;
-	font-size: var(--wp--preset--font-size--body-1);
+    margin: 0;
+    font-size: var(--wp--preset--font-size--body-1);
 }
 
 .intt-alert__close {
-	flex-shrink: 0;
-	background: none;
-	border: none;
-	cursor: pointer;
-	font-size: var(--wp--preset--font-size--heading-3);
-	padding: 0;
-	color: inherit;
-	opacity: 0.7;
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--wp--preset--font-size--heading-3);
+    padding: 0;
+    color: inherit;
+    opacity: 0.7;
 }
 
 .intt-alert__close:hover {
-	opacity: 1;
+    opacity: 1;
 }
 
 .intt-alert--info {
-	background-color: var(--wp--preset--color--azul-electrico-50);
-	color: var(--wp--preset--color--azul-electrico-700);
+    background-color: var(--wp--preset--color--azul-electrico-50);
+    color: var(--wp--preset--color--azul-electrico-700);
 }
 
 .intt-alert--warning {
-	background-color: var(--wp--preset--color--amarillo-oro-50);
-	color: var(--wp--preset--color--amarillo-oro-800);
+    background-color: var(--wp--preset--color--amarillo-oro-50);
+    color: var(--wp--preset--color--amarillo-oro-800);
 }
 
 .intt-alert--emergency {
-	background-color: var(--wp--preset--color--rojo-carmesi-50);
-	color: var(--wp--preset--color--rojo-carmesi-700);
+    background-color: var(--wp--preset--color--rojo-carmesi-50);
+    color: var(--wp--preset--color--rojo-carmesi-700);
 }
 
 .intt-alert-dismissed .intt-alert {
-	display: none;
+    display: none;
 }
 
 /* ── Hero: tipografía responsiva ─────────────────────────────────────────── */
@@ -129,7 +129,7 @@ Text Domain: intt-theme
 .intt-radio__titulo {
     font-size: clamp(2.25rem, 3vw + 1rem, 3.4rem) !important;
     max-width: 12ch;
-		font-weight: 700;
+    font-weight: 700;
 }
 
 /* ── Tarjetas de trámite ──────────────────────────────────────────────────── */
@@ -200,14 +200,14 @@ Text Domain: intt-theme
  * como hijo virtual directo del panel constrained y recupera el tratamiento
  * alignwide (max-width: wide-size) sin tocar el markup del part.
  */
-.intt-megamenu > .wp-block-template-part {
-	max-width: var(--wp--style--global--wide-size);
-	margin-inline: auto;
+.intt-megamenu>.wp-block-template-part {
+    max-width: var(--wp--style--global--wide-size);
+    margin-inline: auto;
 }
 
 /* ── Inicio: acceso rápido a la cuenta ──────────────────────────────────── */
 
-.intt-acceso-cols > .wp-block-column {
+.intt-acceso-cols>.wp-block-column {
     display: flex;
     flex-direction: column;
 }
@@ -263,8 +263,8 @@ Text Domain: intt-theme
     padding-left: 0;
 }
 
-.wp-block-categories .current-cat > a,
-.intt-estado-list .current-cat > a {
+.wp-block-categories .current-cat>a,
+.intt-estado-list .current-cat>a {
     color: var(--wp--preset--color--azul-electrico-600);
     font-weight: 600;
 }
@@ -293,12 +293,12 @@ Text Domain: intt-theme
     background-color: var(--wp--preset--color--gris-100);
 }
 
-.intt-oficina-card > * {
+.intt-oficina-card>* {
     margin-block-start: 0;
     margin-block-end: 0;
 }
 
-.intt-oficina-card > * + * {
+.intt-oficina-card>*+* {
     margin-block-start: var(--wp--preset--spacing--sp-8);
 }
 
@@ -325,6 +325,7 @@ Text Domain: intt-theme
     .intt-noticias-item {
         flex-direction: column;
     }
+
     .intt-noticias-item .wp-block-post-featured-image {
         flex-basis: auto !important;
         width: 100% !important;
@@ -358,3 +359,32 @@ Text Domain: intt-theme
     margin-top: var(--wp--preset--spacing--sp-16);
 }
 
+
+/* ── Dropdown de Relevanssi Live Ajax Search ─────────────────────────────── */
+
+/*
+ * El plugin posiciona el dropdown con JS y calcula su `width` a partir del
+ * <input>, no del contenedor visible `.wp-block-search__inside-wrapper`.
+ * El input siempre es ligeramente más angosto que el wrapper (deja espacio
+ * para el botón lupa al lado), así que el dropdown queda más corto que la
+ * barra de búsqueda visible.
+ *
+ * El plugin no expone un filtro para cambiar qué elemento mide, y el
+ * dropdown vive en <body> (ver inc/search.php: `relevanssi_live_search_add_result_div`)
+ * así que no podemos usar `width: 100%` referenciado al wrapper. Sin
+ * inyectar JS, la salida más simple es forzar el ancho al `contentSize`
+ * del tema.
+ *
+ * IMPORTANTE: si `theme.json > settings.layout.contentSize` cambia, hay
+ * que actualizar el 800px de abajo — no hay forma de referenciarlo desde
+ * CSS porque WordPress no lo expone como custom property.
+ * El `max-width` en calc() previene overflow en viewports estrechos.
+ */
+.relevanssi-live-search-results {
+    width: 800px !important;
+    max-width: calc(100vw - var(--wp--preset--spacing--sp-24) * 2) !important;
+    box-sizing: border-box;
+    /* Compensa el padding interno del wrapper de wp:search (4px) para que
+         el borde izquierdo del dropdown alinee con el borde de la barra. */
+    transform: translateX(-4px);
+}

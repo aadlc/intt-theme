@@ -48,11 +48,30 @@ add_filter( 'relevanssi_live_search_add_result_div', '__return_false' );
 add_filter( 'gettext', function ( $translation, $text, $domain ) {
     if ( 'relevanssi-live-ajax-search' !== $domain ) return $translation;
 
-    if ( 'Press enter to see all the results.' === $text ) {
-        return 'Presiona Enter para ver todos los resultados.';
-    }
+    $strings = [
+        'Press enter to see all the results.'
+            => 'Presiona Enter para ver todos los resultados.',
 
-    return $translation;
+        'No results found.'
+            => 'No se encontraron resultados.',
+
+        'Did you mean'
+            => '¿Quieres decir',
+
+        'Loading search results.'
+            => 'Cargando resultados de la búsqueda.',
+
+        'When autocomplete results are available use up and down arrows to review and enter to go to the desired page. Touch device users, explore by touch or with swipe gestures.'
+            => 'Cuando haya resultados de autocompletado disponibles, usa las flechas hacia arriba y hacia abajo para revisarlos, y Enter para ir a la página que quieras. Si usas un dispositivo táctil, puedes explorar tocando la pantalla o deslizando el dedo.',
+
+        'No valid Relevanssi Live Search configuration found!'
+            => '¡No se encontró ninguna configuración válida de Relevanssi Live Search!',
+
+        'Enhance your search forms with live search.'
+            => 'Mejora tus formularios de búsqueda con resultados en vivo.',
+    ];
+
+    return $strings[ $text ] ?? $translation;
 }, 10, 3 );
 
 add_filter( 'ngettext', function ( $translation, $single, $plural, $number, $domain ) {
