@@ -12,15 +12,15 @@
   <!-- wp:group {"align":"wide","style":{"spacing":{"padding":{"top":"var:preset|spacing|sp-48","bottom":"var:preset|spacing|sp-64"}}},"layout":{"type":"constrained"}} -->
   <div class="wp-block-group alignwide" style="padding-top:var(--wp--preset--spacing--sp-48);padding-bottom:var(--wp--preset--spacing--sp-64)">
 
-    <!-- wp:heading {"level":1,"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|sp-8"}}}} -->
-    <h1 class="wp-block-heading" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--sp-8)">Biblioteca de Documentos</h1>
-    <!-- /wp:heading -->
+    <!-- wp:post-title {"level":1,"lock":{"move":true,"remove":true},"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|sp-8"}}}} /-->
 
-    <!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|sp-48"}}},"textColor":"gris-600"} -->
-    <p class="has-gris-600-color has-text-color" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--sp-48)">Consulta y descarga los documentos institucionales del INTT.</p>
-    <!-- /wp:paragraph -->
+    <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 
-    <!-- wp:intt/biblioteca-list /-->
+    <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|sp-48"}}}} -->
+    <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--sp-48)">
+      <!-- wp:intt/biblioteca-list {"lock":{"move":true,"remove":true}} /-->
+    </div>
+    <!-- /wp:group -->
 
   </div>
   <!-- /wp:group -->

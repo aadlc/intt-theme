@@ -14,10 +14,14 @@ $icono_url = get_template_directory_uri() . '/assets/images/pdf-icon.svg';
 
 echo '<div class="intt-biblioteca">';
 
-foreach ( INTT_CATEGORIAS_DOCUMENTO as $slug => $nombre ) :
+// La constante define el orden fijo y el slug de cada sección. El nombre
+// mostrado en el <h2> se lee del término en BD para que los cambios hechos
+// en WP Admin → Documentos → Categorías se reflejen sin tocar código.
+foreach ( INTT_CATEGORIAS_DOCUMENTO as $slug => $_nombre_semilla ) :
 
     $term = get_term_by( 'slug', $slug, 'categoria_documento' );
     if ( ! $term || is_wp_error( $term ) ) continue;
+    $nombre = $term->name;
 
     $documentos = get_posts( [
         'post_type'      => 'documento',

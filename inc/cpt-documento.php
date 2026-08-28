@@ -7,6 +7,18 @@
  * Este archivo solo agrega comportamiento.
  */
 
+// ── Desactivar el archive del CPT ────────────────────────────────────────────
+// La URL /biblioteca/ es servida por una WP Page (creada en inc/default-pages.php)
+// con contenido editable, no por el archive del CPT. Este filtro anula el
+// has_archive: true que viene de la config ACF UI, para liberar la URL.
+
+add_filter( 'register_post_type_args', function ( $args, $post_type ) {
+    if ( $post_type === 'documento' ) {
+        $args['has_archive'] = false;
+    }
+    return $args;
+}, 10, 2 );
+
 // ── Categorías por defecto ────────────────────────────────────────────────────
 // Se crean si no existen. Orden fijo definido por el array — es el mismo orden
 // que se usa en el bloque intt/biblioteca-list para renderizar las secciones.
