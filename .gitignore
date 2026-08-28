@@ -17,3 +17,6 @@ Thumbs.db
 # Environment / secrets
 .env
 .env.*
+
+# PDFs descargados durante la migracion one-off de la Biblioteca
+tools/biblioteca-migration/pdfs-descargados/
