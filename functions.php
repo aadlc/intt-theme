@@ -69,7 +69,6 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/tipo-tramite-list' );
     register_block_type( get_template_directory() . '/blocks/ciudadanos-destacados' );
     register_block_type( get_template_directory() . '/blocks/empresas-destacados' );
-    register_block_type( get_template_directory() . '/blocks/otros-destacados' );
     register_block_type( get_template_directory() . '/blocks/archivo-tramites-intro' );
     register_block_type( get_template_directory() . '/blocks/biblioteca-list' );
 }, 5 );
