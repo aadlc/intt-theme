@@ -360,6 +360,105 @@ Text Domain: intt-theme
 }
 
 
+/* ── Biblioteca de Documentos ─────────────────────────────────────────────── */
+
+.intt-biblioteca {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--sp-48);
+}
+
+.intt-biblioteca__seccion {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--sp-24);
+}
+
+.intt-biblioteca__titulo {
+    margin: 0;
+    padding-bottom: var(--wp--preset--spacing--sp-16);
+}
+
+.intt-biblioteca__lista {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--sp-16);
+}
+
+.intt-doc-item {
+    display: flex;
+    align-items: center;
+    gap: var(--wp--preset--spacing--sp-16);
+    padding: var(--wp--preset--spacing--sp-16) var(--wp--preset--spacing--sp-24);
+    border: 1px solid var(--wp--preset--color--gris-300);
+    border-radius: 8px;
+    background: var(--wp--preset--color--white);
+}
+
+.intt-doc-item__icono {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.intt-doc-item__icono img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.intt-doc-item__body {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp--preset--spacing--sp-8);
+}
+
+.intt-doc-item__titulo {
+    margin: 0;
+}
+
+.intt-doc-item__titulo a {
+    text-decoration: none;
+}
+
+.intt-doc-item__titulo a:hover {
+    text-decoration: underline;
+}
+
+.intt-doc-item__meta {
+    margin: 0;
+    color: var(--wp--preset--color--gris-600);
+}
+
+.intt-doc-item__accion {
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .intt-doc-item {
+        flex-wrap: wrap;
+    }
+
+    .intt-doc-item__body {
+        flex-basis: calc(100% - 40px - var(--wp--preset--spacing--sp-16));
+    }
+
+    .intt-doc-item__accion {
+        flex-basis: 100%;
+    }
+
+    .intt-doc-item__accion .wp-block-button__link {
+        display: block;
+        text-align: center;
+    }
+}
+
+
 /* ── Dropdown de Relevanssi Live Ajax Search ─────────────────────────────── */
 
 /*

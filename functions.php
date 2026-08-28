@@ -37,6 +37,7 @@ add_action( 'init', function () {
 require_once get_template_directory() . '/inc/synced-patterns.php';
 require_once get_template_directory() . '/inc/cpt-tramites.php';
 require_once get_template_directory() . '/inc/cpt-oficinas.php';
+require_once get_template_directory() . '/inc/cpt-documento.php';
 require_once get_template_directory() . '/inc/alert-bar.php';
 require_once get_template_directory() . '/inc/footer.php';
 require_once get_template_directory() . '/inc/default-pages.php';
@@ -70,6 +71,7 @@ add_action( 'init', function () {
     register_block_type( get_template_directory() . '/blocks/empresas-destacados' );
     register_block_type( get_template_directory() . '/blocks/otros-destacados' );
     register_block_type( get_template_directory() . '/blocks/archivo-tramites-intro' );
+    register_block_type( get_template_directory() . '/blocks/biblioteca-list' );
 }, 5 );
 
 add_action( 'pre_get_posts', function ( $query ) {

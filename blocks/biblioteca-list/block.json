@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "intt/biblioteca-list",
+  "title": "Biblioteca de documentos",
+  "description": "Lista los documentos agrupados por categoría, en orden fijo, con enlace de descarga.",
+  "category": "text",
+  "textdomain": "intt-theme",
+  "render": "file:./render.php",
+  "editorScript": "file:./editor.js",
+  "supports": {
+    "html": false,
+    "reusable": false
+  }
+}
