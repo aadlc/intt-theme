@@ -81,7 +81,9 @@ add_filter( 'get_the_excerpt', function ( $excerpt, $post = null ) {
     $post = $post ?: get_post();
     if ( ! $post || get_post_type( $post ) !== 'tramite' ) return $excerpt;
 
-    if ( is_search() && function_exists( 'relevanssi_do_excerpt' ) ) {
+    // Highlight de términos con Relevanssi es solo para frontend en resultados
+    // de búsqueda. En admin y fuera de búsqueda devolvemos la descripcion cruda.
+    if ( ! is_admin() && is_search() && function_exists( 'relevanssi_do_excerpt' ) ) {
         $query = trim( get_search_query() );
         if ( '' !== $query ) return relevanssi_do_excerpt( $post, $query );
     }
