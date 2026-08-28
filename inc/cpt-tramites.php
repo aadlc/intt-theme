@@ -12,6 +12,15 @@ function intt_registrar_cpt_tramites() {
     add_rewrite_tag( '%tipo_tramite%', '([^/]+)', 'tipo_tramite=' );
 }
 
+// ── Soporte de "Orden" (menu_order) ──────────────────────────────────────────
+// Habilita el panel "Atributos de la página" en el editor del CPT tramite para
+// que el editor pueda asignar prioridad numérica a las tarjetas destacadas.
+// Prioridad 20 asegura que corra después del register_post_type de ACF.
+
+add_action( 'init', function () {
+    add_post_type_support( 'tramite', 'page-attributes' );
+}, 20 );
+
 // ── Rewrite slug: ACF no soporta tokens en el slug, se corrige aquí ──────────
 // ACF registra el CPT con slug plano "tramites". Este filtro lo reemplaza por
 // "tramites/%tipo_tramite%" antes de que WordPress procese el rewrite, evitando

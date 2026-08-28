@@ -3,6 +3,7 @@ $posts = get_posts( [
     'post_type'      => 'tramite',
     'post_status'    => 'publish',
     'posts_per_page' => 4,
+    'orderby'        => [ 'menu_order' => 'ASC', 'title' => 'ASC' ],
     'meta_query'     => [
         [
             'key'     => 'destacados_empresas_y_operadores',
