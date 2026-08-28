@@ -423,6 +423,7 @@ Text Domain: intt-theme
 }
 
 .intt-doc-item__titulo a {
+    color: inherit;
     text-decoration: none;
 }
 
