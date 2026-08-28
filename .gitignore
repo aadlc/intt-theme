@@ -20,3 +20,6 @@ Thumbs.db
 
 # PDFs descargados durante la migracion one-off de la Biblioteca
 tools/biblioteca-migration/pdfs-descargados/
+
+# Notas de pre-entrega (workspace local)
+PRE-HANDOFF.md
